@@ -32,8 +32,8 @@ export function ReportScreen() {
         <div className="text-xl font-semibold">{session.level}</div>
       </div>
 
-      <Section title="🛡️ Scams you defended" items={defended} chs={chs} empty="None yet." />
-      <Section title="⚠️ Scams you fell for" items={fellFor} chs={chs} empty="None — nice." />
+      <Section title="🛡️ Scams you defended" items={defended} empty="None yet." />
+      <Section title="⚠️ Scams you fell for" items={fellFor} empty="None — nice." />
       <div className="mb-4">
         <h3 className="mb-2 font-semibold">🔎 Scams you haven't found yet</h3>
         {notFound.length === 0 ? <p className="text-sm text-slate-500">You found all five. 🎉</p> : (
@@ -49,7 +49,7 @@ export function ReportScreen() {
   );
 }
 
-function Section({ title, items, chs, empty }: { title: string; items: string[]; chs: Record<string, { archetypeId: string }>; empty: string }) {
+function Section({ title, items, empty }: { title: string; items: string[]; empty: string }) {
   return (
     <div className="mb-4">
       <h3 className="mb-2 font-semibold">{title}</h3>

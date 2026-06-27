@@ -13,7 +13,7 @@ app.post('/api/chat', async (req, res) => {
   try {
     const out = await handleChat(getProvider(), req.body as ChatRequest);
     res.json(out);
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: 'chat failed' });
   }
 });
