@@ -37,4 +37,13 @@ describe('aggregate', () => {
     const cnt = stats.find((s) => s.archetypeId === 'counterfeit_item')!;
     expect(urg.fellForRate).toBeGreaterThan(cnt.fellForRate);
   });
+  it('avgDetectTurns averages only defended plays, rounds to 1 dp', () => {
+    const stats = aggregate([
+      play({ archetypeId: 'off_platform', outcome: 'defended', turnsToResolve: 4 }),
+      play({ archetypeId: 'off_platform', outcome: 'defended', turnsToResolve: 3 }),
+      play({ archetypeId: 'off_platform', outcome: 'scammed', turnsToResolve: 1 }),
+    ]);
+    const op = stats.find((s) => s.archetypeId === 'off_platform')!;
+    expect(op.avgDetectTurns).toBe(3.5); // (4+3)/2, excludes the scammed play
+  });
 });
