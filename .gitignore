@@ -1,0 +1,7 @@
+# Claude Code — personal / machine-specific (never commit)
+.claude/settings.local.json
+.claude/.local/
+
+# Secrets
+.env
+.env.*
