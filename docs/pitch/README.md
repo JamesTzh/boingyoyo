@@ -26,11 +26,11 @@ Everything for presenting **Phish n Cheats** to the judges. Aligned to the appro
 
 ## Locked facts this kit reflects (keep in sync with the specs)
 
-- **5 archetypes:** off-platform · urgency/flash-sale · deposit-before-meetup · fake-payment-proof · counterfeit.
-- **Grade:** *Scam Resistance* 0–100 (Detection 60 / Caution 25 / Speed 15) → **Rookie · Aware · Sharp · Guardian**.
-- **Trigger:** deterministic client-side **unsafe-action tap** — the LLM never fires the gotcha ([`04-grading-and-reports.md`](../specs/phish-n-cheats/04-grading-and-reports.md)).
-- **Demo archetype:** off-platform (the MacBook listing); turn on `demoMode` to float it to the top.
-- **Demo brand:** "Marketly" (SGD), re-skinnable via `theme.config.ts` ([`06-ui-and-theming.md`](../specs/phish-n-cheats/06-ui-and-theming.md)).
+- **5 archetypes:** off-platform · urgency/flash-sale · deposit-before-meetup · phishing payment link · counterfeit.
+- **Grade:** *Scam-Resistance* 0–100 (Detection 60 / Caution 25 / Speed 15) → **Rookie · Aware · Sharp · Guardian**.
+- **Trigger:** end the chat with **Make offer** vs **Report this listing**; an **LLM judge** rules *scammed / avoided* and explains why (deterministic offline fallback: Make offer → scammed). *(The specs describe the original deterministic-tap design; the build now uses the judge.)*
+- **Demo archetype:** off-platform — the **iPhone** listing (seller `kevin_deals`). (`demoMode` isn't wired; the planted **MacBook flash-sale** already tops the feed by likes.)
+- **Demo brand:** "Carouza" (SGD), re-skinnable via `theme.config.ts` ([`06-ui-and-theming.md`](../specs/phish-n-cheats/06-ui-and-theming.md)).
 - **Dashboard:** seeded baseline **+ the live session** ("+ you, tonight") ([`05-data-and-dashboard.md`](../specs/phish-n-cheats/05-data-and-dashboard.md)).
 
 ## Regenerating the PDF after editing the deck

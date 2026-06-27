@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getProvider } from '../server/llm/factory';
-import { handleChat, type ChatRequest } from '../server/handlers';
+import { getProvider } from '../server/llm/factory.js';
+import { handleChat, type ChatRequest } from '../server/handlers.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'method not allowed' });
