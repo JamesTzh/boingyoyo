@@ -19,10 +19,10 @@ One page to glance at before and during judging. Track: **Trust, Commerce & Frau
 ---
 
 ## PRODUCT FACTS (locked — match what's on screen)
-- **5 archetypes:** off-platform · urgency/flash-sale · deposit-before-meetup · fake-payment-proof · counterfeit.
-- **Grade:** *Scam Resistance* score 0–100 (Detection 60 / Caution 25 / Speed 15) → level: **Rookie · Aware · Sharp · Guardian**.
-- **Trigger:** deterministic client-side **unsafe-action tap** — the AI never decides the freeze (demo can't misfire).
-- **Demo brand:** "Marketly" (SGD). Re-skinnable to any marketplace via one theme config.
+- **5 archetypes:** off-platform · urgency/flash-sale · deposit-before-meetup · phishing payment link · counterfeit.
+- **Grade:** *Scam-Resistance* score 0–100 (Detection 60 / Caution 25 / Speed 15) → level: **Rookie · Aware · Sharp · Guardian**.
+- **Trigger:** end the chat with **Make offer** (vs **Report this listing**); an **LLM judge** reads the whole conversation, rules *scammed / avoided*, then explains why. Offline it falls back deterministically (Make offer → scammed), so the live demo still can't misfire.
+- **Demo brand:** "Carouza" (SGD), set in `src/lib/theme.config.ts`. Re-skinnable to any marketplace via one theme config.
 - **Dashboard:** seeded baseline **+ the live session** ("+ you, tonight"). No database — all in-browser.
 
 ---
@@ -41,7 +41,7 @@ One page to glance at before and during judging. Track: **Trust, Commerce & Frau
 ---
 
 ## SPONSOR-TECH TALKING POINTS  *(Innovation is 30% — be specific)*
-- **OpenAI (core):** every "seller" reply is a live API call driving an archetype-specific scam that *adapts to whatever the buyer says*. It's not a scripted chatbot — you can try to negotiate and it negotiates back. This is the central mechanic, not a feature. It sits behind a one-file `LlmProvider` abstraction — a deliberate choice that keeps it portable, so "you're an Anthropic shop using OpenAI" is a design decision, not a lock-in.
+- **OpenAI (core):** every "seller" reply is a live API call driving an archetype-specific scam that *adapts to whatever the buyer says*. It's not a scripted chatbot — you can try to negotiate and it negotiates back. This is the central mechanic, not a feature. It sits behind a one-file `LlmProvider` abstraction — a deliberate choice that keeps it portable, so "you're an Anthropic shop using OpenAI" is a design decision, not a lock-in. The *same* model also closes the loop: an LLM **judge** reads the finished conversation to rule scammed/avoided and explain why, and the trace narration is generated per player — three central LLM jobs (seller, judge, narration), not one bolted-on call.
 - **If asked "where else could you use sponsor tools?"** (good, ambitious answer):
   - **Exa** → ground listings in *real* market prices so "too good to be true" deals are precisely calibrated, and pull current real-world scam patterns to keep the AI seller's tactics fresh.
   - The grading/trace narration is also LLM-generated for per-player personalization.
@@ -58,7 +58,7 @@ One page to glance at before and during judging. Track: **Trust, Commerce & Frau
 > Phishing sims send one fake email and grade a click. We run a *live, two-way scam* — an AI that argues, pressures, and adapts in real time inside a realistic marketplace. You don't pick A/B/C/D; you actually try to make the deal and discover your own instincts fail. It's a flight simulator, not a multiple-choice test.
 
 **"What stops the AI seller from saying something harmful or breaking character?"**
-> It's constrained to a fixed archetype system prompt per challenge with guardrails. And critically, the *intervention is triggered by a concrete unsafe action* — the player taps a button flagged `unsafe` (e.g. "Pay on WhatsApp"). That's deterministic client-side logic; the LLM is **never in the gotcha path**, so it can't misfire on stage and the lesson is precise.
+> Two things. Each seller runs a fixed archetype system prompt with guardrails, so it stays in character as that one scam. And the freeze is a *separate* call, not the seller's: when you end the chat (**Make offer** vs **Report this listing**), an **LLM judge** reviews the whole transcript and rules whether you were scammed or caught it — then explains why. If the model is ever unavailable it falls back to a deterministic verdict (Make offer → scammed), so the on-stage demo can't misfire either way.
 
 **"Who pays for this / what's the business model?"**
 > The marketplace's trust & safety team. Today they spend on passive education with no feedback loop. We give them measurable buyer resistance *and* a live report on which scams are working — that intelligence alone justifies the spend. Platform-agnostic, so it's one product sold to many marketplaces.
@@ -76,16 +76,16 @@ One page to glance at before and during judging. Track: **Trust, Commerce & Frau
 
 ## VIDEO PRODUCTION (full script + shot list in DEMO_SCRIPT.md)
 - Two recordings: **pitch video** (voiceover over the deck) + **demo video** (one unedited play-through). Target ~3:00 total.
-- Turn on **`demoMode`** so the planted listing is fast to reach — no hunting on camera.
-- Demo the **off-platform** archetype (the "Pay on WhatsApp" listing) — fastest, most recognizable trigger.
+- No `demoMode` needed — planted listings sit right in the feed (the **MacBook flash-sale** tops it by likes). For the demo, open the **off-platform iPhone** (seller `kevin_deals`).
+- Demo the **off-platform** archetype — the iPhone listing where the AI seller keeps pushing you onto **WhatsApp**. Most recognizable scam.
 - Record real time — **don't speed up the AI chat**; it adapting live is the proof. Burn in captions (judged with sound off).
-- Hold ~1s on the freeze stamp and on the grade. The freeze is deterministic client-side, so it fires every take.
+- Hold ~1s on the freeze card ("This was a planted scam") and on the grade. Tapping **Make offer** triggers it, and the offline fallback guarantees it fires every take.
 
 ---
 
 ## SUBMISSION CHECKLIST
 - [ ] OpenAI API key working + quota headroom; warm-up chat done so the first reply isn't cold
-- [ ] `demoMode` ON; theme set; one planted listing + one genuine decoy working end-to-end
+- [ ] Theme set to **Carouza**; one planted listing + one genuine decoy working end-to-end
 - [ ] Trust-team dashboard loads (seeded + "+ you, tonight" live)
 - [ ] Demo recorded at 1080p/60, real time, 2–3 takes — cleanest one picked
 - [ ] Captions burned in; sharp sound cue on the freeze; total runtime under ~3:00

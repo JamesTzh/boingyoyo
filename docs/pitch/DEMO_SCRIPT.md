@@ -4,7 +4,7 @@ Two recordings, one story. **Part A** is the pitch video (voiceover over the dec
 
 **Total runtime target:** ~3:00 (Part A ≈ 1:55 · Part B ≈ 1:05). Trim Part A first if you run long.
 
-**Voiceover delivery:** calm, dry, confident. Don't sell — state. Short sentences. Let the freeze moment breathe (a full second of silence before the stamp). Read it like you've seen this happen a hundred times, because the data says you have.
+**Voiceover delivery:** calm, dry, confident. Don't sell — state. Short sentences. Let the freeze moment breathe (a full second of silence before the card slams in). Read it like you've seen this happen a hundred times, because the data says you have.
 
 **The spine of the story:** people are *sure* they won't get scammed (overconfidence) → and they don't know the patterns that get them (knowledge gap) → you can't fix either with a warning → so we let them survive each scam once, safely.
 
@@ -34,7 +34,7 @@ Two recordings, one story. **Part A** is the pitch video (voiceover over the dec
 
 ### `[SLIDE 6 — How it works]`  ~1:30–1:48
 > "Tap a planted listing and you're talking to the seller — except the seller is an AI, powered by OpenAI, running a live scam. It pressures you. It adapts to whatever you say. It nudges you off-platform.
-> And the moment you cross an unsafe line —"
+> And the moment you go through with the deal —"
 
 ### `[SLIDE 7 — Demo title card]`  ~1:48–1:55
 > "— it stops you. Watch a real play-through. Nothing here is staged."
@@ -54,17 +54,17 @@ Two recordings, one story. **Part A** is the pitch video (voiceover over the dec
 
 ## PART B — DEMO VIDEO (voiceover over a real play-through)
 
-A single, unbroken screen-recording of one play-through, narrated in present tense. **Use the off-platform archetype** (the "Pay on WhatsApp" listing) — it's the fastest, most recognizable scam to show. Record it for real; the freeze is deterministic, so it can't misfire.
+A single, unbroken screen-recording of one play-through, narrated in present tense. **Use the off-platform archetype** — the **iPhone 14** listing from seller `kevin_deals`, where the AI seller keeps pushing you onto WhatsApp. It's the most recognizable scam. Record it for real; tapping **Make offer** triggers the freeze and an offline fallback guarantees it, so it can't misfire.
 
 | Time | On screen (record this) | Voiceover |
 | --- | --- | --- |
-| 0:00–0:08 | Marketplace feed scrolling. Real listings — sneakers, a bike, sunglasses — and one tempting deal. | "This looks like any marketplace. Real listings. One of them is a plant." |
-| 0:08–0:18 | Tap the planted listing (e.g. MacBook well under market). Listing page looks legit — photos, price, seller. | "I tap a deal that's a little too good. Looks completely normal." |
-| 0:18–0:38 | Open chat. AI seller messages arrive in real time: urgency, then "let's just do PayNow on WhatsApp, skip the fees." Type a reply; it adapts. | "I message the seller. This is a live AI — it pressures me, and when I push back, it pushes back. Then it tries to move me off the platform." |
-| 0:38–0:46 | Tap the **"Pay on WhatsApp"** quick action (the tempting one). | "So I do the thing that feels harmless. I agree to pay off-platform." |
-| 0:46–0:52 | **FREEZE** — screen blurs and shakes, red stamp slams in: **"You just got scammed."** Hold it. | *(one beat of silence)* "And that's it. In real life, the money's gone." |
-| 0:52–1:00 | Grade screen: Scam Resistance score + level (Rookie → Guardian), annotated replay highlighting the red flag. | "It grades me on the spot, and replays the exact moment I should have stopped." |
-| 1:00–1:05 | Quick cut to the trust-team dashboard: "which scams fool the most people" + **"+ you, tonight."** | "And every play feeds this — the platform's live scam intelligence." |
+| 0:00–0:08 | Marketplace feed scrolling. Real listings — sneakers, a bike, sunglasses — and a few plants (the MacBook flash-sale tops the feed). | "This looks like any marketplace. Real listings. A few of them are plants." |
+| 0:08–0:18 | Tap the planted **off-platform iPhone** (`kevin_deals`). Listing page looks legit — photos, fair price, friendly seller. | "I open a normal-looking iPhone. Friendly seller, replies fast, fair price." |
+| 0:18–0:38 | Open chat. The AI seller messages arrive in real time; when I ask to keep it on the app, it keeps steering me to WhatsApp. Type replies; it adapts. | "I message the seller — this is a live AI. I push back, it pushes back, and it keeps trying to move me onto WhatsApp, off the platform's protection." |
+| 0:38–0:46 | Tap **Make offer** to go through with the deal (instead of *Report this listing*). | "So I do the thing that feels harmless — I go ahead and make the offer." |
+| 0:46–0:52 | **FREEZE** — the chat blurs and a card slams in: **"This was a planted scam."** Hold it. | *(one beat of silence)* "And that's it. In real life, the money's gone." |
+| 0:52–1:00 | Grade/trace screen: Scam-Resistance score + level (Rookie → Guardian), annotated replay highlighting the red flags. | "It grades me on the spot, and replays the exact moment I should have stopped." |
+| 1:00–1:05 | Quick cut to the trust-team dashboard: "which scams fool the most people" + **"including your play tonight."** | "And every play feeds this — the platform's live scam intelligence." |
 
 **→ CUT back to `[SLIDE 8]` of Part A.**
 
@@ -73,27 +73,27 @@ A single, unbroken screen-recording of one play-through, narrated in present ten
 ## RECORDING & EDITING CHECKLIST
 
 **Before you capture the demo**
-- [ ] `demoMode` ON — floats a planted listing near the top so the play is fast and clean.
-- [ ] Theme set; one planted listing + one genuine listing confirmed working end-to-end.
+- [ ] No `demoMode` needed — planted listings sit right in the feed (the MacBook flash-sale tops it). Know the path to the off-platform iPhone (`kevin_deals`) so the play is fast and clean.
+- [ ] Theme set to **Carouza**; one planted listing + one genuine listing confirmed working end-to-end.
 - [ ] OpenAI API key working with quota headroom; do one warm-up chat so the first response isn't cold.
 - [ ] Browser zoomed up so text is readable in 1080p; bookmarks/extensions hidden; notifications silenced.
 - [ ] Clean browser window, no other tabs visible.
 
 **Capture**
 - [ ] Record at 1080p, 60fps. Real time — **do not speed up the AI chat**; its adapting in real time is the proof.
-- [ ] Move the cursor deliberately; no frantic jitter. Pause ~1s on the freeze stamp and on the grade.
-- [ ] Get 2–3 takes of the play-through; pick the cleanest. The freeze is client-side and deterministic, so it fires every time.
+- [ ] Move the cursor deliberately; no frantic jitter. Pause ~1s on the freeze card and on the grade.
+- [ ] Get 2–3 takes of the play-through; pick the cleanest. Tapping **Make offer** triggers the freeze, and the offline fallback (Make offer → scammed) means it fires every time.
 
 **Edit**
 - [ ] Burn in captions (a lot of judging is done with sound off).
 - [ ] Add a short, sharp sound cue on the freeze; otherwise keep audio minimal.
 - [ ] Keep total under ~3:00. If trimming: cut Part A slides 5–6 to one sentence each before you touch the demo.
-- [ ] On the freeze, consider a 0.5s hold-frame so the "You just got scammed" stamp fully registers.
+- [ ] On the freeze, consider a 0.5s hold-frame so the "This was a planted scam" card fully registers.
 
 ---
 
 ## WHAT THE VIDEO HAS TO LAND (the two frames that win)
-1. **The freeze + red stamp** — a plausible buyer walking straight into it, stopped one step short.
+1. **The freeze card** ("This was a planted scam") — a plausible buyer walking straight into it, stopped one step short.
 2. **The trust-team dashboard** — "and here's what we learn about every player."
 
 If only those two beats are crisp, you've hit Innovation (30%) and Market Value (25%). Everything else is connective tissue — keep it moving.

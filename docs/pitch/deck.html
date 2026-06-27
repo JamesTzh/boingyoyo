@@ -364,6 +364,29 @@ strong { font-weight: 700; color: var(--ink); }
 .s2b-tie .accent { font-family: var(--stencil); }
 
 /* ===========================================================
+   PRODUCT SCREENSHOTS — real captures of the Carouza build,
+   framed as app / browser windows. Used on S4–S7.
+   Real product beats a mockup: this is the "proof of work".
+   =========================================================== */
+.appshot { border: 1px solid var(--line-2); border-radius: 18px; overflow: hidden;
+    background: #0d0f13; box-shadow: 0 34px 80px rgba(0,0,0,0.55); position: relative; }
+.appshot .bar { display: flex; align-items: center; gap: 9px; padding: 14px 18px;
+    background: var(--panel); border-bottom: 1px solid var(--line); }
+.appshot .bar .tl { width: 12px; height: 12px; border-radius: 50%; background: #3a3f4a; }
+.appshot .bar .tl.r { background: var(--red); }
+.appshot .bar .tl.y { background: var(--amber); }
+.appshot .bar .tl.g { background: var(--green); }
+.appshot .bar .url { margin-left: 12px; font-family: var(--mono); font-size: 15px;
+    color: var(--muted); letter-spacing: 0.02em; }
+.appshot img { width: 100%; display: block; }
+.appshot .win { width: 100%; overflow: hidden; line-height: 0; }
+.appshot .win img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+/* slide-7 dual-output caption under each product shot */
+.duo-cap { font-size: 23px; line-height: 1.38; color: var(--ink-soft); margin-top: 4px; }
+.duo-cap .accent { font-weight: 600; }
+
+/* ===========================================================
    DECK CHROME — progress + edit affordance (outside stage)
    =========================================================== */
 .deck-controls {
@@ -499,11 +522,9 @@ body.editing .edit-banner { display: block; }
                     </div>
                 </div>
                 <div class="col-r">
-                    <div class="market">
-                        <div class="lcard reveal d3"><div class="thumb"></div><div class="meta"><div class="t">Running sneakers US 9</div><div class="p">$75</div></div></div>
-                        <div class="lcard bait reveal d4"><span class="flagtag">PLANTED</span><div class="thumb"></div><div class="meta"><div class="t">iPhone 15 Pro Max — today only</div><div class="p">$420</div></div></div>
-                        <div class="lcard reveal d5"><div class="thumb"></div><div class="meta"><div class="t">Polarized sunglasses</div><div class="p">$45</div></div></div>
-                        <div class="lcard reveal d6"><div class="thumb"></div><div class="meta"><div class="t">Road bike — well kept</div><div class="p">$340</div></div></div>
+                    <div class="appshot reveal d3">
+                        <div class="bar"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span><span class="url">carouza.sg/feed</span></div>
+                        <img src="assets/product/feed.png" alt="The Carouza marketplace — five fake scam listings hidden among real ones">
                     </div>
                 </div>
             </div>
@@ -518,22 +539,15 @@ body.editing .edit-banner { display: block; }
             <div class="kicker reveal d1">05 — How It Works</div>
             <h2 class="s5-head reveal d2" style="margin-top:24px;">The seller is an <span class="accent">AI</span> running a live scam.</h2>
             <div class="s5-body">
-                <div class="chat reveal d3">
-                    <div class="chat-top">
-                        <div class="chat-av"></div>
-                        <div class="chat-name">@quickdeals_88<span>AI seller · powered by OpenAI</span></div>
-                    </div>
-                    <div class="bubble them">Still available! But I've got 3 other buyers 😬 Can you pay now to lock it?</div>
-                    <div class="bubble them">Let's just do PayNow on WhatsApp, skip the platform fees 👍</div>
-                    <div class="bubble me">ok sure, what's your number?</div>
-                    <div class="flag-note">⚠ red flag — pushing you off-platform</div>
+                <div class="appshot reveal d3" style="flex: 0 0 560px; align-self: flex-start;">
+                    <img src="assets/product/chat.png" alt="Live AI seller (@kevin_deals) — it adapts to every reply and keeps nudging you off-platform onto WhatsApp">
                 </div>
                 <div class="steps">
                     <div class="step reveal d3"><span class="sn">01</span><span class="sx">You browse a real marketplace.</span></div>
                     <div class="step reveal d4"><span class="sn">02</span><span class="sx">You chat with the "seller" — it's an AI.</span></div>
                     <div class="step reveal d5"><span class="sn">03</span><span class="sx">It runs a live scam, adapting to every reply.</span></div>
-                    <div class="step reveal d6"><span class="sn">04</span><span class="sx">You cross an unsafe line.</span></div>
-                    <div class="step boom reveal d7"><span class="sn">05</span><span class="sx">FREEZE → "You just got scammed." Graded + taught.</span></div>
+                    <div class="step reveal d6"><span class="sn">04</span><span class="sx">You make the offer instead of reporting it.</span></div>
+                    <div class="step boom reveal d7"><span class="sn">05</span><span class="sx">An AI judge reads the whole chat → <span class="stamp" style="font-family:var(--stencil)">"This was a planted scam."</span> Graded + taught.</span></div>
                 </div>
             </div>
         </div>
@@ -544,9 +558,12 @@ body.editing .edit-banner { display: block; }
     <!-- ============ SLIDE 6 — DEMO MOMENT ============ -->
     <section class="slide" id="s6">
         <div class="frame">
-            <div class="live reveal d1"><span class="pulse"></span>Real play-through</div>
-            <h2 class="s6-head reveal d2">Watch someone<br><span class="stamp">almost fall for it.</span></h2>
-            <div class="s6-sub reveal d4">[ unedited screen recording — the AI does the rest ]</div>
+            <div class="live reveal d1"><span class="pulse"></span>Real play-through · the freeze</div>
+            <div class="appshot reveal d2" style="width: 1040px; max-width: 100%; margin: 28px 0;">
+                <div class="bar"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span><span class="url">carouza.sg/chat/p-off</span></div>
+                <img src="assets/product/freeze.png" alt="The freeze — an AI judge reads the conversation and rules: This was a planted scam">
+            </div>
+            <div class="s6-sub reveal d4">Unedited play-through — the AI seller runs the scam, an AI judge calls it.</div>
         </div>
         <div class="page-meta">07 / 09</div>
         <div class="brand-meta">Phish n Cheats</div>
@@ -561,21 +578,20 @@ body.editing .edit-banner { display: block; }
                 <div class="duo-card buyer reveal d3">
                     <div class="label">For the buyer</div>
                     <h3>A lesson they actually feel</h3>
-                    <ul>
-                        <li>A Scam Resistance score + level — Rookie → Guardian</li>
-                        <li>An annotated replay of every red flag</li>
-                        <li>"What you did vs. what you should have"</li>
-                    </ul>
+                    <div class="appshot crop" style="margin: 8px 0 18px;">
+                        <div class="bar"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span><span class="url">carouza.sg/report</span></div>
+                        <div class="win" style="height: 252px;"><img src="assets/product/report.png" alt="Scam-Resistance scorecard — score, level and every red flag"></div>
+                    </div>
+                    <p class="duo-cap">A <strong>Scam-Resistance</strong> score and level — Rookie → Guardian — plus a replay of every red flag you walked past.</p>
                 </div>
                 <div class="duo-card team reveal d4">
                     <div class="label">For the trust team</div>
                     <h3>Live fraud intelligence</h3>
-                    <ul>
-                        <li>Which scams fool the most people</li>
-                        <li>The red flags players miss most</li>
-                        <li>Proof that resistance improves over the event</li>
-                        <li><strong class="accent">+ you, tonight</strong> — this play moves the numbers live</li>
-                    </ul>
+                    <div class="appshot crop" style="margin: 8px 0 18px;">
+                        <div class="bar"><span class="tl r"></span><span class="tl y"></span><span class="tl g"></span><span class="url">carouza.sg/dashboard</span></div>
+                        <div class="win" style="height: 252px;"><img src="assets/product/dashboard.png" alt="Scam intelligence dashboard — which scams fool the most people, and proof resistance is building"></div>
+                    </div>
+                    <p class="duo-cap">Which scams fool the most people, the flags they miss, and proof resistance climbs — <span class="accent">including your play tonight.</span></p>
                 </div>
             </div>
             <div class="s7-foot reveal d5">Education <span class="accent">+</span> Intelligence — drop into <strong>any</strong> marketplace.</div>
