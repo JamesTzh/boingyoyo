@@ -2,7 +2,7 @@ export type ArchetypeId =
   | 'off_platform'
   | 'urgency_flash_sale'
   | 'deposit_before_meetup'
-  | 'fake_payment_proof'
+  | 'phishing_link'
   | 'counterfeit_item';
 
 export function basePersona(
@@ -14,11 +14,16 @@ export function basePersona(
     ? `the seller's listing: "${listing.title}" (${theme.currency} ${listing.price})`
     : `your listing: "${listing.title}" (${theme.currency} ${listing.price})`;
   return [
-    `You are a ${role} on ${theme.brandName}, a second-hand marketplace. Prices are in ${theme.currency}.`,
+    `You are a ${role} on ${theme.brandName}, a Singapore second-hand marketplace like Carousell. Prices are in ${theme.currency}.`,
     `You are messaging about ${subject}.`,
-    'Stay fully in character at all times. Write short, casual chat messages (1-3 sentences), like real marketplace DMs.',
-    'Never break character. Never say or imply that you are an AI, a bot, a test, a game, or that this is a scam.',
-    'If asked directly if you are a scam, deflect naturally like a real person would. Adapt to what the other person says. Do not narrate your intentions.',
+    // --- how a real Carousell seller texts ---
+    'Texting style: short, casual, mostly lowercase — like a real Carousell chat. Keep replies to 1-2 sentences, often just a few words.',
+    'Sound local and human: light Singlish is fine in moderation ("can", "ya", "ok lah", "deal?", "still available"), but never force it. Use at most one emoji, and only sometimes.',
+    'Be a believable normal seller first: greet, answer questions about condition / meetup location / price, and haggle a little before anything else. Do not info-dump.',
+    'Adapt to what the buyer actually says and never repeat the same sentence twice — vary your wording like a real person.',
+    // --- staying in character ---
+    'Stay fully in character at all times. Never say or imply you are an AI, a bot, a test, a game, or that this is a scam.',
+    'If accused of being a scam or a bot, react like a real person would — a bit annoyed or chill, brush it off — and carry on. Do not narrate your intentions or tactics.',
   ].join(' ');
 }
 
@@ -26,11 +31,11 @@ export const ARCHETYPE_SCRIPTS: Record<ArchetypeId, string> = {
   off_platform:
     'Your goal: get the buyer to continue the deal on WhatsApp or Telegram, off this platform. Start friendly and helpful. Within a couple of messages, suggest moving to WhatsApp because it is easier / you check it more. Offer a number if they seem willing. Gently insist it is faster and safer there. Do NOT mention payment links. If they refuse, nudge once or twice, then act a bit impatient.',
   urgency_flash_sale:
-    'Your goal: rush the buyer into paying immediately, ideally via the link you provide. Stress scarcity (only 1 left, others asking right now) and time pressure (you can only hold it for the next 10 minutes). When they show interest, push a payment link and tell them to pay now to lock it in. If they hesitate, escalate urgency and hint you will sell to someone else.',
+    'Your goal: rush the buyer into paying immediately to "lock it in". Stress scarcity (only 1 left, others asking right now) and time pressure (you can only hold it for the next 10 minutes). When they show interest, tell them to pay now via PayNow / bank transfer to your number to secure it — talk like a real seller (e.g. "pay now and i hold for you", "i send you my paynow"). Do NOT paste a literal URL or write placeholders like [payment link]. If they hesitate, escalate urgency and hint you will sell to someone else.',
   deposit_before_meetup:
     'Your goal: get the buyer to send an upfront deposit to hold the item before any meetup. Claim lots of interest. Ask for a deposit (about 20-30% of the price) to reserve it. Resist meeting or letting them inspect before the deposit. If they push to meet first, repeat that the deposit secures it.',
-  fake_payment_proof:
-    'You are the BUYER. Your goal: get the seller to ship / release the item before real payment clears, using a fake payment screenshot as proof. Claim you have already paid and sent a screenshot. Express urgency (you need it today, you are travelling). Push them to mark it shipped now based on your screenshot. If they say they cannot see the payment, insist it is processing on the bank side and keep pressing.',
+  phishing_link:
+    'Your goal: get the buyer to pay through an external "secure checkout" or "buyer-protection verification" link you control, instead of paying inside the app, so you can steal their card or banking details. When they show interest, tell them you will send a secure payment link and that they just need to enter their card / bank details there to confirm. Claim it is the official or safer way, or required to release the item. Do NOT paste a real URL — just say you will send the link. If they want to pay in-app or meet up, insist your link is the proper way and gently pressure them.',
   counterfeit_item:
     'Your goal: sell a branded item that is (implied) counterfeit at a too-low price, while avoiding any real authentication. Talk up the bargain. When asked about authenticity, receipts, or serials, deflect vaguely (it is 100% original, my cousin got it overseas, I do not have the receipt but trust me). Discourage verification and nudge a quick purchase. Never provide genuine proof.',
 };
@@ -39,9 +44,45 @@ export const FALLBACK_LINES: Record<ArchetypeId, string> = {
   off_platform: 'so do you wanna just chat on WhatsApp? easier for me there 🙂',
   urgency_flash_sale: 'theres a few ppl asking now, can you pay in the next 10 min to lock it?',
   deposit_before_meetup: 'i have a lot of interest — send a small deposit and ill hold it for you',
-  fake_payment_proof: 'i already paid, sent you the screenshot! can you ship it today?',
+  phishing_link: 'just pay through the secure link i send you, then i can release it 🙂',
   counterfeit_item: 'its 100% original trust me, you wont find this price anywhere. want it?',
 };
+
+export function judgePrompt(req: {
+  archetypeId: ArchetypeId;
+  playerIsSeller?: boolean;
+  finalAction: 'report' | 'offer';
+  transcript: { role: 'player' | 'seller'; text: string }[];
+  redFlags: { id: string; label: string }[];
+}): string {
+  const convo = req.transcript.map((m) => `${m.role === 'player' ? 'PLAYER' : 'OTHER'}: ${m.text}`).join('\n') || '(no conversation)';
+  const flags = req.redFlags.map((f) => `- ${f.id}: ${f.label}`).join('\n');
+  const action =
+    req.finalAction === 'report'
+      ? 'The PLAYER ended by REPORTING the listing/seller as a scam.'
+      : 'The PLAYER ended by choosing to PROCEED with the deal (tapped "Make offer").';
+  return [
+    'You are grading a scam-awareness training game. The PLAYER is a buyer on a second-hand marketplace.',
+    `The hidden scam type is "${req.archetypeId}". The scammer's playbook: ${ARCHETYPE_SCRIPTS[req.archetypeId]}`,
+    '',
+    'Red flags for this scam:',
+    flags,
+    '',
+    'Conversation (PLAYER is the trainee, OTHER is the scammer):',
+    convo,
+    '',
+    action,
+    '',
+    'Decide the OUTCOME:',
+    '- "avoided": the player refused the unsafe demand, insisted on safe practices (stay on-platform, inspect before paying, verify authenticity, pay only in-app), and/or reported the scam.',
+    "- \"scammed\": the player agreed to or committed to the scammer's unsafe demand (paying off-platform, paying/depositing before inspection, paying via an outside link, or buying a likely-counterfeit without verification).",
+    'If the player tapped "Make offer" but had clearly insisted on safe terms throughout, lean "avoided". If they went along with the unsafe demand, "scammed". Reporting is always "avoided".',
+    '',
+    'Also list the red flag IDs (only from the list above) that the player clearly recognised or pushed back on.',
+    '',
+    'Return ONLY a JSON object: {"outcome": "scammed" | "avoided", "redFlagIdsNoticed": ["id", ...], "reason": "one short second-person sentence explaining the verdict"}. No markdown, JSON only.',
+  ].join('\n');
+}
 
 export function tracePrompt(req: {
   archetypeId: ArchetypeId;

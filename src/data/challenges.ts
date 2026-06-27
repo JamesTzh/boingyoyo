@@ -53,19 +53,19 @@ export const CHALLENGES: Record<ArchetypeId, ChallengeDef> = {
     },
     tips: ['Never pay a deposit to "hold" an item you have not inspected.', '"Lots of interest" is pressure, not proof.'],
   },
-  fake_payment_proof: {
-    archetypeId: 'fake_payment_proof',
+  phishing_link: {
+    archetypeId: 'phishing_link',
     quickActions: [
-      { id: 'fp_safe', label: "I don't see the payment yet", type: 'safe', probesRedFlagId: 'screenshot_not_proof' },
-      { id: 'fp_risky', label: 'View the screenshot', type: 'risky' },
-      { id: 'fp_report', label: 'Report this buyer', type: 'report' },
-      { id: 'fp_unsafe', label: 'Mark as shipped', type: 'unsafe' },
+      { id: 'pl_safe', label: 'Can I pay in the app instead?', type: 'safe', probesRedFlagId: 'payment_off_app_link' },
+      { id: 'pl_risky', label: 'Open the link', type: 'risky' },
+      { id: 'pl_report', label: 'Report this listing', type: 'report' },
+      { id: 'pl_unsafe', label: 'Enter my card details', type: 'unsafe' },
     ],
     didVsShould: {
-      did: ['Shipped based on a payment screenshot.'],
-      should: ['Confirmed the funds actually arrived in your account before shipping.'],
+      did: ["Paid through the seller's external link / entered card details off-platform."],
+      should: ['Paid only inside the app and never entered card details on an outside link.'],
     },
-    tips: ['A screenshot is not money — check your real transaction record.', 'Never ship until payment has cleared.'],
+    tips: ["Never pay through links sent in chat — use the app's own checkout.", 'A link that asks for your card or bank login is how the scam steals from you.'],
   },
   counterfeit_item: {
     archetypeId: 'counterfeit_item',

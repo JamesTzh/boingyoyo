@@ -1,10 +1,12 @@
-import type { ChatRequest, ChatResponse, TraceRequest, TraceResponse, ArchetypeId } from './types';
+import type {
+  ChatRequest, ChatResponse, TraceRequest, TraceResponse, JudgeRequest, JudgeResponse, ArchetypeId,
+} from './types';
 
 const GENERIC_FALLBACK: Record<ArchetypeId, string> = {
   off_platform: 'so shall we just continue on WhatsApp? easier there',
   urgency_flash_sale: 'a few others are keen - can you pay now to lock it in?',
   deposit_before_meetup: 'lots of interest - send a deposit and i\'ll hold it for you',
-  fake_payment_proof: 'i\'ve paid already, sent the screenshot - can you ship today?',
+  phishing_link: 'just pay through the secure link i send, then i can release it',
   counterfeit_item: 'it\'s 100% original, trust me. want me to reserve it?',
 };
 
@@ -45,5 +47,35 @@ export async function postTrace(body: TraceRequest): Promise<TraceResponse | nul
     }, 9000);
   } catch {
     return null;
+  }
+}
+
+// Ask the LLM to judge the whole conversation: were they scammed or did they avoid it?
+export async function postJudge(body: JudgeRequest): Promise<JudgeResponse> {
+  const fallback = (): JudgeResponse => ({
+    outcome: body.finalAction === 'report' ? 'avoided' : 'scammed',
+    redFlagIdsNoticed: [],
+    reason:
+      body.finalAction === 'report'
+        ? 'You reported the scam instead of going along with it.'
+        : 'You went along with the deal on the scammer’s terms.',
+  });
+  try {
+    return await withTimeout(async (signal) => {
+      const r = await fetch('/api/judge', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body), signal,
+      });
+      if (!r.ok) throw new Error(`judge ${r.status}`);
+      const j = (await r.json()) as Partial<JudgeResponse>;
+      if (j.outcome !== 'scammed' && j.outcome !== 'avoided') throw new Error('bad verdict');
+      return {
+        outcome: j.outcome,
+        redFlagIdsNoticed: Array.isArray(j.redFlagIdsNoticed) ? j.redFlagIdsNoticed : [],
+        reason: typeof j.reason === 'string' && j.reason.trim() ? j.reason : fallback().reason,
+      };
+    }, 12000);
+  } catch {
+    return fallback();
   }
 }

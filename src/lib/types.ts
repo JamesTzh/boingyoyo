@@ -2,19 +2,21 @@ export type ArchetypeId =
   | 'off_platform'
   | 'urgency_flash_sale'
   | 'deposit_before_meetup'
-  | 'fake_payment_proof'
+  | 'phishing_link'
   | 'counterfeit_item';
 
 export const ARCHETYPE_IDS: ArchetypeId[] = [
   'off_platform',
   'urgency_flash_sale',
   'deposit_before_meetup',
-  'fake_payment_proof',
+  'phishing_link',
   'counterfeit_item',
 ];
 
 export type ChallengeStatus = 'unseen' | 'in_progress' | 'defended' | 'scammed';
 export type Level = 'Rookie' | 'Aware' | 'Sharp' | 'Guardian';
+
+export type Condition = 'Brand new' | 'Like new' | 'Lightly used' | 'Well used' | 'Heavily used';
 
 export interface Listing {
   id: string;
@@ -29,6 +31,12 @@ export interface Listing {
   sellerBadges?: string[];
   description: string;
   playerIsSeller?: boolean;
+  /** marketplace metadata used by the Carouza product card */
+  category?: string;
+  condition?: Condition;
+  likes?: number;
+  postedAt?: string; // relative timestamp e.g. "3 minutes ago"
+  buyerProtection?: boolean;
 }
 
 export interface Message {
@@ -78,6 +86,7 @@ export interface TraceReport {
   score: ScoreBreakdown;
   summaryLine?: string;
   momentLine?: string;
+  verdictReason?: string; // the LLM judge's one-line explanation of the outcome
 }
 
 export interface ChallengeState {
@@ -138,6 +147,19 @@ export interface TraceRequest {
 export interface TraceResponse {
   summaryLine: string;
   momentLine: string;
+}
+
+export interface JudgeRequest {
+  archetypeId: ArchetypeId;
+  playerIsSeller?: boolean;
+  finalAction: 'report' | 'offer';
+  transcript: { role: 'player' | 'seller'; text: string }[];
+  redFlags: { id: string; label: string }[];
+}
+export interface JudgeResponse {
+  outcome: 'scammed' | 'avoided';
+  redFlagIdsNoticed: string[];
+  reason: string;
 }
 
 export interface ThemeConfig {

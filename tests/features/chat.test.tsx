@@ -26,11 +26,12 @@ function renderChat() {
 }
 
 describe('ChatScreen', () => {
-  it('tapping the unsafe action resolves as scammed and shows the gotcha', async () => {
+  it('making an offer routes to the judge and resolves the challenge', async () => {
     renderChat();
-    await waitFor(() => expect(screen.getByText('Message them on WhatsApp')).toBeInTheDocument());
-    await userEvent.click(screen.getByText('Message them on WhatsApp'));
-    expect(useStore.getState().session!.challenges.off_platform.status).toBe('scammed');
-    expect(screen.getByText(/planted scam/i)).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByText('Make offer')).toBeInTheDocument());
+    await userEvent.click(screen.getByText('Make offer'));
+    // the judge verdict (fallback: offer -> scammed) is applied
+    await waitFor(() => expect(useStore.getState().session!.challenges.off_platform.status).toBe('scammed'));
+    await waitFor(() => expect(screen.getByText(/planted scam/i)).toBeInTheDocument());
   });
 });

@@ -1,12 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Carouza — dark marketplace theme.
+  Two token layers live here:
+   1. Carouza-named vars (--bg, --teal, --coral …) for direct, readable use.
+   2. shadcn-standard HSL vars (--background, --primary …) so the ui/* primitives
+      stay drop-in compatible with the wider shadcn ecosystem.
+*/
 :root {
-  --brand-primary: #2563eb;
-  --brand-primary-fg: #ffffff;
-  --brand-surface: #ffffff;
-  --brand-danger: #dc2626;
-  --brand-success: #16a34a;
+  /* --- Carouza palette --- */
+  --bg: #0e0e10;          /* page */
+  --bg-nav: #08080a;      /* slightly darker top bar */
+  --surface: #1a1a1d;     /* product cards, panels */
+  --surface-2: #2a2a2d;   /* category tiles, raised pills */
+  --surface-input: #1c1c1e;
+  --ink: #ffffff;
+  --ink-muted: #9ca3af;
+  --line: rgba(255, 255, 255, 0.08);
+  --teal: #10b981;
+  --teal-bright: #1ed6a0;
+  --coral: #ef4444;
+  --coral-bright: #ff4d4d;
+
+  /* --- shadcn-standard tokens (HSL channels) --- */
+  --background: 240 7% 6%;
+  --foreground: 0 0% 100%;
+  --card: 240 5% 11%;
+  --card-foreground: 0 0% 100%;
+  --popover: 240 5% 9%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 160 84% 39%;            /* teal */
+  --primary-foreground: 162 70% 10%; /* dark ink on teal */
+  --secondary: 240 3% 17%;           /* surface-2 */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 240 4% 14%;
+  --muted-foreground: 218 11% 65%;
+  --accent: 240 3% 17%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;          /* coral */
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 4% 18%;
+  --input: 240 4% 18%;
+  --ring: 160 84% 39%;
+  --radius: 0.75rem;
+
+  /* legacy brand tokens kept so existing utilities recolor cleanly */
+  --brand-primary: #10b981;
+  --brand-primary-fg: #052e23;
+  --brand-surface: #1a1a1d;
+  --brand-danger: #ef4444;
+  --brand-success: #22c55e;
 }
-body { @apply bg-slate-50 text-slate-900; }
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-bg text-ink;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: normal;
+  }
+  /* dark, on-brand scrollbars for the horizontal rails */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .text-balance { text-wrap: balance; }
+}

@@ -12,8 +12,11 @@ describe('listings', () => {
   it('includes genuine decoys', () => {
     expect(LISTINGS.some((l) => !l.isPlanted && l.archetypeId === null)).toBe(true);
   });
-  it('marks the fake-payment listing as player-as-seller', () => {
-    expect(plantedListingFor('fake_payment_proof').playerIsSeller).toBe(true);
+  it('makes the phishing-link scam a buyer-victim scenario', () => {
+    expect(plantedListingFor('phishing_link').playerIsSeller).toBeFalsy();
+  });
+  it('every planted scam targets the buyer', () => {
+    LISTINGS.filter((l) => l.isPlanted).forEach((l) => expect(l.playerIsSeller).toBeFalsy());
   });
   it('listingById returns the correct listing and undefined for unknown id', () => {
     expect(listingById('p-off')?.id).toBe('p-off');

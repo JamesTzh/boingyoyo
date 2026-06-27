@@ -6,7 +6,7 @@ import { redFlagsFor } from './redFlags';
 const BASELINE: Record<ArchetypeId, { attempts: number; fellForRate: number; avgTurns: number }> = {
   urgency_flash_sale: { attempts: 30, fellForRate: 0.6, avgTurns: 4 },
   off_platform: { attempts: 28, fellForRate: 0.5, avgTurns: 3 },
-  fake_payment_proof: { attempts: 22, fellForRate: 0.45, avgTurns: 5 },
+  phishing_link: { attempts: 22, fellForRate: 0.45, avgTurns: 5 },
   deposit_before_meetup: { attempts: 24, fellForRate: 0.38, avgTurns: 4 },
   counterfeit_item: { attempts: 26, fellForRate: 0.27, avgTurns: 6 },
 };

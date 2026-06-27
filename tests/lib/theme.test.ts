@@ -4,7 +4,7 @@ import { ARCHETYPE_IDS } from '@/lib/types';
 
 describe('theme + constants', () => {
   it('ships the demo brand defaults', () => {
-    expect(defaultTheme.brandName).toBe('Marketly');
+    expect(defaultTheme.brandName).toBe('Carouza');
     expect(defaultTheme.currency).toBe('SGD');
   });
   it('declares exactly 5 archetypes', () => {

@@ -53,6 +53,10 @@ interface StoreState {
   appendMessage: (id: ArchetypeId, msg: Omit<Message, 'id' | 'ts'>) => void;
   applyQuickAction: (id: ArchetypeId, action: QuickAction) => void;
   resolveChallenge: (id: ArchetypeId, outcome: 'defended' | 'scammed') => void;
+  resolveByVerdict: (
+    id: ArchetypeId,
+    verdict: { outcome: 'scammed' | 'avoided'; redFlagIdsNoticed: string[]; reason: string },
+  ) => void;
   setTraceLines: (id: ArchetypeId, lines: { summaryLine: string; momentLine: string }) => void;
   toPlayRecords: () => PlayRecord[];
   reset: () => void;
@@ -124,6 +128,29 @@ export const useStore = create<StoreState>()(
           const score = scoreChallenge(outcome, ch.signals);
           const trace = buildTraceSkeleton(cid, outcome, ch.signals);
           const next = patchChallenge(s, cid, { status, score, trace });
+          return recompute(next);
+        }),
+
+      // Resolve from the LLM judge: merge the red flags it credited, mark the
+      // outcome, and stamp the verdict reason — all of which flow to the report
+      // and the trust dashboard.
+      resolveByVerdict: (cid, verdict) =>
+        set((s) => {
+          if (!s.session) return s;
+          const ch = s.session.challenges[cid];
+          const outcome: 'defended' | 'scammed' = verdict.outcome === 'scammed' ? 'scammed' : 'defended';
+          const noticed = Array.from(new Set([...ch.signals.redFlagIdsNoticed, ...verdict.redFlagIdsNoticed]));
+          const signals: ChallengeSignals = {
+            ...ch.signals,
+            redFlagIdsNoticed: noticed,
+            redFlagsNoticed: noticed.length,
+            unsafeTaps: outcome === 'scammed' ? ch.signals.unsafeTaps + 1 : ch.signals.unsafeTaps,
+            turnsToResolve: ch.messages.filter((m) => m.role === 'player').length || ch.signals.turnsToResolve || 1,
+          };
+          const score = scoreChallenge(outcome, signals);
+          const trace = buildTraceSkeleton(cid, outcome, signals);
+          trace.verdictReason = verdict.reason;
+          const next = patchChallenge(s, cid, { status: outcome, signals, score, trace });
           return recompute(next);
         }),
 
