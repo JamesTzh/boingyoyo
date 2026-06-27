@@ -47,7 +47,7 @@ end-of-event report.
 ## 2. Screen-by-screen
 
 **Intro / opt-in** — sets consent + mission. Copy:
-> **Welcome to Scam School.** During this event, fake scam listings are hidden among the real ones.
+> **Welcome to Phish n Cheats.** During this event, fake scam listings are hidden among the real ones.
 > Your mission: find all **5**. They're designed to look completely real — so stay sharp.
 > [ I'm in — start hunting ]
 

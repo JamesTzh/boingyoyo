@@ -1,9 +1,9 @@
-# Scam School — Overview & Design Index
+# Phish n Cheats — Overview & Design Index
 
-> **Status:** Approved design (hackathon MVP). Source of truth: `scam_school_prd2.md`.
+> **Status:** Approved design (hackathon MVP). Source of truth: `phish_n_cheats_prd2.md`.
 > **Date:** 2026-06-27.
 
-This is the canonical design doc and index for the **Scam School** spec set. Read this first, then
+This is the canonical design doc and index for the **Phish n Cheats** spec set. Read this first, then
 the numbered specs in order.
 
 | # | Spec | Covers |

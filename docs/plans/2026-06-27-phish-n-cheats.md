@@ -1,4 +1,4 @@
-# Scam School Implementation Plan
+# Phish n Cheats Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -8,7 +8,7 @@
 
 **Tech Stack:** TypeScript, Vite, React 18, React Router v6, Tailwind CSS, Zustand, Framer Motion, Node + Express, `openai` SDK, Vitest + @testing-library/react, ESLint + Prettier, `concurrently`.
 
-**Spec:** Full design in [`docs/specs/scam-school/`](../specs/scam-school/00-overview.md) (files 00–06). Each task below cites the spec section it implements.
+**Spec:** Full design in [`docs/specs/phish-n-cheats/`](../specs/phish-n-cheats/00-overview.md) (files 00–06). Each task below cites the spec section it implements.
 
 ## Global Constraints
 
@@ -94,7 +94,7 @@ tests/                          # Vitest specs mirror src/ + server/
 
 ```json
 {
-  "name": "scam-school",
+  "name": "phish-n-cheats",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -270,7 +270,7 @@ module.exports = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scam School</title>
+    <title>Phish n Cheats</title>
   </head>
   <body>
     <div id="root"></div>
@@ -312,7 +312,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 `src/app/App.tsx` (temporary placeholder, replaced in Task 12):
 ```tsx
 export default function App() {
-  return <h1 className="p-8 text-2xl font-bold">Scam School</h1>;
+  return <h1 className="p-8 text-2xl font-bold">Phish n Cheats</h1>;
 }
 ```
 
@@ -340,7 +340,7 @@ Run: `npm test`
 Expected: `tests/smoke.test.ts` PASS (1 passed).
 
 Run: `npm run dev` then open `http://localhost:5173`
-Expected: page shows "Scam School". Stop the dev server (Ctrl-C) after confirming.
+Expected: page shows "Phish n Cheats". Stop the dev server (Ctrl-C) after confirming.
 
 - [ ] **Step 7: Add `.gitignore` entries & commit**
 
@@ -590,7 +590,7 @@ git commit -m "feat: shared types and theme config"
 
 ## Task 3: Red flags & challenge data
 
-Implements spec [`02-challenges.md`](../specs/scam-school/02-challenges.md) §5 and the red-flag catalogue.
+Implements spec [`02-challenges.md`](../specs/phish-n-cheats/02-challenges.md) §5 and the red-flag catalogue.
 
 **Files:**
 - Create: `src/data/redFlags.ts`, `src/data/challenges.ts`, `tests/data/challenges.test.ts`
@@ -763,7 +763,7 @@ git commit -m "feat: red-flag catalogue and 5 challenge definitions"
 
 ## Task 4: Listings (planted + decoys)
 
-Implements spec [`02-challenges.md`](../specs/scam-school/02-challenges.md) §5–6.
+Implements spec [`02-challenges.md`](../specs/phish-n-cheats/02-challenges.md) §5–6.
 
 **Files:**
 - Create: `src/data/listings.ts`, `tests/data/listings.test.ts`
@@ -914,7 +914,7 @@ git commit -m "feat: planted and decoy listings with bundled images"
 
 ## Task 5: Scoring engine (pure, TDD)
 
-Implements spec [`04-grading-and-reports.md`](../specs/scam-school/04-grading-and-reports.md) §3–4.
+Implements spec [`04-grading-and-reports.md`](../specs/phish-n-cheats/04-grading-and-reports.md) §3–4.
 
 **Files:**
 - Create: `src/lib/scoring.ts`, `tests/lib/scoring.test.ts`
@@ -1024,7 +1024,7 @@ git commit -m "feat: scam-resistance scoring engine"
 
 ## Task 6: Intervention helpers (pure, TDD)
 
-Implements the deterministic mapping in spec [`04-grading-and-reports.md`](../specs/scam-school/04-grading-and-reports.md) §1.
+Implements the deterministic mapping in spec [`04-grading-and-reports.md`](../specs/phish-n-cheats/04-grading-and-reports.md) §1.
 
 **Files:**
 - Create: `src/lib/intervention.ts`, `tests/lib/intervention.test.ts`
@@ -1093,7 +1093,7 @@ git commit -m "feat: deterministic intervention mapping helpers"
 
 ## Task 7: Aggregate function & seeds (TDD)
 
-Implements spec [`05-data-and-dashboard.md`](../specs/scam-school/05-data-and-dashboard.md) §3–4.
+Implements spec [`05-data-and-dashboard.md`](../specs/phish-n-cheats/05-data-and-dashboard.md) §3–4.
 
 **Files:**
 - Create: `src/lib/aggregate.ts`, `src/data/seeds.ts`, `tests/lib/aggregate.test.ts`
@@ -1264,7 +1264,7 @@ git commit -m "feat: dashboard aggregate function and seeded baseline"
 
 ## Task 8: LLM provider abstraction + OpenAI implementation
 
-Implements spec [`03-ai-seller.md`](../specs/scam-school/03-ai-seller.md) §2–3.
+Implements spec [`03-ai-seller.md`](../specs/phish-n-cheats/03-ai-seller.md) §2–3.
 
 **Files:**
 - Create: `server/llm/provider.ts`, `server/llm/openai.ts`, `server/llm/factory.ts`, `tests/server/factory.test.ts`
@@ -1366,7 +1366,7 @@ git commit -m "feat: LlmProvider abstraction with OpenAI implementation"
 
 ## Task 9: Prompts & fallbacks
 
-Implements spec [`03-ai-seller.md`](../specs/scam-school/03-ai-seller.md) §4, §7.
+Implements spec [`03-ai-seller.md`](../specs/phish-n-cheats/03-ai-seller.md) §4, §7.
 
 **Files:**
 - Create: `server/prompts.ts`, `tests/server/prompts.test.ts`
@@ -1490,7 +1490,7 @@ git commit -m "feat: seller prompts, fallbacks, and trace prompt"
 
 ## Task 10: Proxy handlers (pure, TDD with a mock provider)
 
-Implements spec [`03-ai-seller.md`](../specs/scam-school/03-ai-seller.md) §5, §7 and [`04`](../specs/scam-school/04-grading-and-reports.md) §5.
+Implements spec [`03-ai-seller.md`](../specs/phish-n-cheats/03-ai-seller.md) §5, §7 and [`04`](../specs/phish-n-cheats/04-grading-and-reports.md) §5.
 
 **Files:**
 - Create: `server/handlers.ts`, `tests/server/handlers.test.ts`
@@ -1640,7 +1640,7 @@ git commit -m "feat: proxy chat/trace handlers with fallback"
 
 ## Task 11: Express server bootstrap
 
-Implements spec [`01-architecture.md`](../specs/scam-school/01-architecture.md) §5–6.
+Implements spec [`01-architecture.md`](../specs/phish-n-cheats/01-architecture.md) §5–6.
 
 **Files:**
 - Create: `server/index.ts`
@@ -1683,7 +1683,7 @@ app.post('/api/trace', async (req, res) => {
 });
 
 const port = Number(process.env.PORT ?? 8787);
-app.listen(port, () => console.log(`[scam-school] proxy on :${port}`));
+app.listen(port, () => console.log(`[phish-n-cheats] proxy on :${port}`));
 ```
 
 - [ ] **Step 2: Verify the server boots & health responds**
@@ -1704,7 +1704,7 @@ git commit -m "feat: express proxy bootstrap with health, chat, trace routes"
 
 ## Task 12: Zustand store + sessionStorage
 
-Implements spec [`05-data-and-dashboard.md`](../specs/scam-school/05-data-and-dashboard.md) §2 and the resolution logic in [`04`](../specs/scam-school/04-grading-and-reports.md).
+Implements spec [`05-data-and-dashboard.md`](../specs/phish-n-cheats/05-data-and-dashboard.md) §2 and the resolution logic in [`04`](../specs/phish-n-cheats/04-grading-and-reports.md).
 
 **Files:**
 - Create: `src/lib/store.ts`, `tests/lib/store.test.ts`
@@ -1934,7 +1934,7 @@ export const useStore = create<StoreState>()(
 
       reset: () => set({ session: null }),
     }),
-    { name: 'scam-school', storage: createJSONStorage(() => sessionStorage) },
+    { name: 'phish-n-cheats', storage: createJSONStorage(() => sessionStorage) },
   ),
 );
 
@@ -1975,7 +1975,7 @@ git commit -m "feat: zustand store with scoring, resolution, and persistence"
 
 ## Task 13: API client with timeout & fallback
 
-Implements spec [`03`](../specs/scam-school/03-ai-seller.md) §7 and [`04`](../specs/scam-school/04-grading-and-reports.md) §5 (client side).
+Implements spec [`03`](../specs/phish-n-cheats/03-ai-seller.md) §7 and [`04`](../specs/phish-n-cheats/04-grading-and-reports.md) §5 (client side).
 
 **Files:**
 - Create: `src/lib/api.ts`, `tests/lib/api.test.ts`
@@ -2098,7 +2098,7 @@ git commit -m "feat: client API with timeout and graceful fallback"
 
 ## Task 14: App shell — theme provider, router, header, intro
 
-Implements spec [`06-ui-and-theming.md`](../specs/scam-school/06-ui-and-theming.md) §1–2, §4.
+Implements spec [`06-ui-and-theming.md`](../specs/phish-n-cheats/06-ui-and-theming.md) §1–2, §4.
 
 **Files:**
 - Create: `src/app/ThemeProvider.tsx`, `src/app/Header.tsx`, `src/features/intro/IntroScreen.tsx`
@@ -2182,7 +2182,7 @@ export function IntroScreen() {
 
   return (
     <div className="mx-auto max-w-xl px-6 py-16 text-center">
-      <h1 className="mb-4 text-4xl font-extrabold">Welcome to Scam School</h1>
+      <h1 className="mb-4 text-4xl font-extrabold">Welcome to Phish n Cheats</h1>
       <p className="mb-8 text-lg text-slate-600">
         During this event, fake scam listings are hidden among the real ones on {theme.brandName}.
         Your mission: find all <strong>5</strong>. They are designed to look completely real — so stay sharp.
@@ -2279,7 +2279,7 @@ git commit -m "feat: app shell with theme provider, router, header, intro"
 
 ## Task 15: Marketplace feed & listing detail
 
-Implements spec [`06`](../specs/scam-school/06-ui-and-theming.md) §2 (feed, detail).
+Implements spec [`06`](../specs/phish-n-cheats/06-ui-and-theming.md) §2 (feed, detail).
 
 **Files:**
 - Create/replace: `src/features/marketplace/FeedScreen.tsx`, `src/features/marketplace/ListingCard.tsx`, `src/features/marketplace/ListingDetailScreen.tsx`
@@ -2405,7 +2405,7 @@ git commit -m "feat: marketplace feed and listing detail"
 
 ## Task 16: Chat screen (seller chat + quick actions)
 
-Implements spec [`02`](../specs/scam-school/02-challenges.md) §3–4, [`03`](../specs/scam-school/03-ai-seller.md) §5, [`06`](../specs/scam-school/06-ui-and-theming.md) §2 (chat).
+Implements spec [`02`](../specs/phish-n-cheats/02-challenges.md) §3–4, [`03`](../specs/phish-n-cheats/03-ai-seller.md) §5, [`06`](../specs/phish-n-cheats/06-ui-and-theming.md) §2 (chat).
 
 **Files:**
 - Create/replace: `src/features/chat/ChatScreen.tsx`, `src/features/chat/MessageBubble.tsx`, `src/features/chat/QuickActionBar.tsx`
@@ -2646,7 +2646,7 @@ git commit -m "feat: AI seller chat with quick actions"
 
 ## Task 17: Intervention overlays (gotcha + win)
 
-Implements spec [`04`](../specs/scam-school/04-grading-and-reports.md) §2, [`06`](../specs/scam-school/06-ui-and-theming.md) §2.
+Implements spec [`04`](../specs/phish-n-cheats/04-grading-and-reports.md) §2, [`06`](../specs/phish-n-cheats/06-ui-and-theming.md) §2.
 
 **Files:**
 - Create: `src/features/intervention/GotchaModal.tsx`, `src/features/intervention/WinScreen.tsx`
@@ -2747,7 +2747,7 @@ git commit -m "feat: gotcha and win intervention overlays"
 
 ## Task 18: Trace report screen
 
-Implements spec [`04`](../specs/scam-school/04-grading-and-reports.md) §5.
+Implements spec [`04`](../specs/phish-n-cheats/04-grading-and-reports.md) §5.
 
 **Files:**
 - Create/replace: `src/features/grading/TraceScreen.tsx`
@@ -2902,7 +2902,7 @@ git commit -m "feat: per-challenge trace report with hybrid LLM lines"
 
 ## Task 19: End-of-event report card
 
-Implements spec [`04`](../specs/scam-school/04-grading-and-reports.md) §6.
+Implements spec [`04`](../specs/phish-n-cheats/04-grading-and-reports.md) §6.
 
 **Files:**
 - Create/replace: `src/features/report/ReportScreen.tsx`
@@ -3023,7 +3023,7 @@ git commit -m "feat: end-of-event report card"
 
 ## Task 20: Trust-team dashboard
 
-Implements spec [`05`](../specs/scam-school/05-data-and-dashboard.md) §5.
+Implements spec [`05`](../specs/phish-n-cheats/05-data-and-dashboard.md) §5.
 
 **Files:**
 - Create/replace: `src/features/dashboard/DashboardScreen.tsx`
@@ -3055,7 +3055,7 @@ export function DashboardScreen() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
-      <h1 className="text-2xl font-bold">Trust &amp; Safety — Scam School insights</h1>
+      <h1 className="text-2xl font-bold">Trust &amp; Safety — Phish n Cheats insights</h1>
       <p className="mb-6 text-sm text-slate-500">Aggregated across all players{live.length ? ' + you, tonight' : ''}.</p>
 
       <h2 className="mb-3 font-semibold">Which scams fool the most people</h2>
@@ -3118,10 +3118,10 @@ git commit -m "feat: trust-team dashboard with seeded + live aggregation"
 
 ## Task 21: End-to-end verification & README
 
-Validates the acceptance criteria in spec [`01`](../specs/scam-school/01-architecture.md) §6 and [`00`](../specs/scam-school/00-overview.md) §12.
+Validates the acceptance criteria in spec [`01`](../specs/phish-n-cheats/01-architecture.md) §6 and [`00`](../specs/phish-n-cheats/00-overview.md) §12.
 
 **Files:**
-- Create: `README-scam-school.md` (run instructions; keep the repo's existing `README.md` for the skills bundle)
+- Create: `README-phish-n-cheats.md` (run instructions; keep the repo's existing `README.md` for the skills bundle)
 - Modify: none (integration only)
 
 - [ ] **Step 1: Full test suite green**
@@ -3153,23 +3153,23 @@ Stop the proxy (leave only `vite` running, or set an invalid `OPENAI_API_KEY`).
 
 - [ ] **Step 4: Write run instructions**
 
-`README-scam-school.md`:
+`README-phish-n-cheats.md`:
 ```markdown
-# Scam School — run
+# Phish n Cheats — run
 
 1. `npm install`
 2. `cp .env.example .env` and set `OPENAI_API_KEY` (optional — the app is playable without it via fallbacks).
 3. `npm run dev` — opens the app on http://localhost:5173 with the proxy on :8787.
 4. `npm test` — unit/behavior tests.
 
-Spec: `docs/specs/scam-school/`. Plan: `docs/plans/2026-06-27-scam-school.md`.
+Spec: `docs/specs/phish-n-cheats/`. Plan: `docs/plans/2026-06-27-phish-n-cheats.md`.
 ```
 
 - [ ] **Step 5: Commit**
 
 ```bash
-git add README-scam-school.md
-git commit -m "docs: scam school run instructions and e2e verification"
+git add README-phish-n-cheats.md
+git commit -m "docs: phish n cheats run instructions and e2e verification"
 ```
 
 ---

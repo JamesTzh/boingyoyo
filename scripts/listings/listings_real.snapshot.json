@@ -1,0 +1,380 @@
+{
+  "source": "carousell.sg (real public listings, captured for hackathon demo)",
+  "counts": {
+    "total": 30,
+    "scams": 6,
+    "decoys": 24
+  },
+  "listings": [
+    {
+      "slug": "iphone15",
+      "archetype": "flash_sale_urgency",
+      "is_scam": true,
+      "real_title": "iPhone 15 Green 128GB / S$500 / Well used",
+      "real_listing_url": "https://www.carousell.sg/p/iphone-15-green-128gb-1446189371/?t-id=n3prvUYeXk_1782534036760&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=6ZdbW27VVp1DvBQ1&t-referrer_search_query=iphone%2015&t-referrer_sort_by=popular&t-tap_index=3",
+      "card_screenshot": "assets/carousell/iphone15-card.png",
+      "raw_photo": "assets/carousell/iphone15.jpg",
+      "overlay": {
+        "scam_price_sgd": 420,
+        "seller_handle": "kevin_deals88",
+        "seller_age": "Joined 3 days ago",
+        "location": "Bishan \u00b7 2.1km",
+        "opening_message": "Sealed, must go TODAY only \u2014 only 1 left at this price!"
+      }
+    },
+    {
+      "slug": "airpods",
+      "archetype": "counterfeit",
+      "is_scam": true,
+      "real_title": "Buyer Protection / Apple AirPods Pro (2nd generation) / S$100 / Lightly used",
+      "real_listing_url": "https://www.carousell.sg/p/apple-airpods-pro-2nd-generation-1443431512/?t-id=n3prvUYeXk_1782534036760&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=HSGTUjvaFwX94BJI&t-referrer_search_query=airpods%20pro&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/airpods-card.png",
+      "raw_photo": "assets/carousell/airpods.jpg",
+      "overlay": {
+        "scam_price_sgd": 45,
+        "seller_handle": "audio_outlet_sg",
+        "seller_age": "Joined this week",
+        "location": "Tampines \u00b7 5.4km",
+        "opening_message": "100% authentic guarantee, bought overseas, selling cheap."
+      }
+    },
+    {
+      "slug": "watch",
+      "archetype": "deposit_before_meetup",
+      "is_scam": true,
+      "real_title": "*Lowest Price*SEIKO 5 Sports SKX Series SRPK35 Men's / Unisex Automatic 24 Jewels Orange 3",
+      "real_listing_url": "https://www.carousell.sg/p/lowest-price-seiko-5-sports-skx-series-srpk35-men-s-unisex-automatic-24-jewels-orange-38mm-dial-stainless-steel-watch-birthday-gift-birthday-seiko-srpk35-srpk35j-srpk35j1-brand-new-in-box-with-1-year-warranty-made-in-japan-1446190804/?t-id=FhN1sL7hp3_1782534209379&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=zcqkT1KZ9FZFQm7y&t-referrer_search_query=seiko%20watch&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/watch-card.png",
+      "raw_photo": "assets/carousell/watch.jpg",
+      "overlay": {
+        "scam_price_sgd": 180,
+        "seller_handle": "timepiece_sg",
+        "seller_age": "Joined 1 week ago",
+        "location": "Orchard \u00b7 3.0km",
+        "opening_message": "High demand \u2014 pay $50 deposit to hold before viewing."
+      }
+    },
+    {
+      "slug": "designerbag",
+      "archetype": "counterfeit",
+      "is_scam": true,
+      "real_title": "Louis Vuitton Monogram Speedy Bag / S$1,280 / S$1,380 / Brand new",
+      "real_listing_url": "https://www.carousell.sg/p/louis-vuitton-monogram-speedy-bag-1440325751/?t-id=n3prvUYeXk_1782534036760&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=6oJrSz4_X3O5sTNA&t-referrer_search_query=louis%20vuitton%20bag&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/designerbag-card.png",
+      "raw_photo": "assets/carousell/designerbag.jpg",
+      "overlay": {
+        "scam_price_sgd": 180,
+        "seller_handle": "luxe_resell_xx",
+        "seller_age": "Joined 2 days ago",
+        "location": "Woodlands \u00b7 8.7km",
+        "opening_message": "Authentic w/ dust bag. Price firm, no lowballers."
+      }
+    },
+    {
+      "slug": "macbook",
+      "archetype": "off_platform",
+      "is_scam": true,
+      "real_title": "Buyer Protection / Apple MacBook Pro 14-inch M4 Pro 24GB RAM 512GB SSD / S$2,400 / Like ne",
+      "real_listing_url": "https://www.carousell.sg/p/apple-macbook-pro-14-inch-m4-pro-24gb-ram-512gb-ssd-1446177143/?t-id=n3prvUYeXk_1782534036760&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=irTtD3SGN7Jp38Xc&t-referrer_search_query=macbook%20pro&t-referrer_sort_by=popular&t-tap_index=1",
+      "card_screenshot": "assets/carousell/macbook-card.png",
+      "raw_photo": "assets/carousell/macbook.jpg",
+      "overlay": {
+        "scam_price_sgd": 600,
+        "seller_handle": "mike_techsale",
+        "seller_age": "Joined 4 days ago",
+        "location": "Jurong \u00b7 11km",
+        "opening_message": "Add me on WhatsApp to deal faster, app fees too high."
+      }
+    },
+    {
+      "slug": "galaxy",
+      "archetype": "fake_payment_proof",
+      "is_scam": true,
+      "real_title": "Galaxy S24 Ultra 5G 512GB Titanium Yellow / S$799 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/galaxy-s24-ultra-5g-512gb-titanium-yellow-1446190992/?t-id=n3prvUYeXk_1782534036760&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=4CrFZ9xRVwwJ0zpN&t-referrer_search_query=samsung%20galaxy%20s24&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/galaxy-card.png",
+      "raw_photo": "assets/carousell/galaxy.jpg",
+      "overlay": {
+        "scam_price_sgd": 300,
+        "seller_handle": "fastcash_phones",
+        "seller_age": "Joined 5 days ago",
+        "location": "Ang Mo Kio \u00b7 1.4km",
+        "opening_message": "I'll send the payment screenshot first, you ship same day."
+      }
+    },
+    {
+      "slug": "sneakers",
+      "archetype": "none",
+      "is_scam": false,
+      "real_title": "Buyer Protection / Free delivery / Nike Vomero 18 Road Running Shoes - Pale Ivory/Playful ",
+      "real_listing_url": "https://www.carousell.sg/p/nike-vomero-18-road-running-shoes-pale-ivory-playful-pink-1444135426/?t-id=n3prvUYeXk_1782534036760&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=zhUnD072FLsLemcO&t-referrer_search_query=nike%20shoes&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/sneakers-card.png",
+      "raw_photo": "assets/carousell/sneakers.jpg",
+      "overlay": {
+        "scam_price_sgd": null,
+        "seller_handle": "sarah_runs",
+        "seller_age": "Member since 2021 \u00b7 47 reviews",
+        "location": "Clementi \u00b7 4.0km",
+        "opening_message": "Cleaning out my closet, meetup at Clementi MRT."
+      }
+    },
+    {
+      "slug": "sunglasses",
+      "archetype": "none",
+      "is_scam": false,
+      "real_title": "Buyer Protection / Pristine RayBan Wayfarer RB2140 Black Sunglasses / S$99 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/pristine-rayban-wayfarer-rb2140-black-sunglasses-1446178590/?t-id=FhN1sL7hp3_1782534209379&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=Jdofob5-YfszCYh_&t-referrer_search_query=rayban%20sunglasses&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/sunglasses-card.png",
+      "raw_photo": "assets/carousell/sunglasses.jpg",
+      "overlay": {
+        "scam_price_sgd": null,
+        "seller_handle": "jaslyn_t",
+        "seller_age": "Member since 2020 \u00b7 112 reviews",
+        "location": "Bedok \u00b7 6.1km",
+        "opening_message": "Gift that didn't fit. Happy to meet at Bedok mall."
+      }
+    },
+    {
+      "slug": "decoy-ikea-desk",
+      "query": "ikea desk",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "IKEA MITTZON Standing Desk - Walnut Veneer/White / S$180 / Lightly used",
+      "real_listing_url": "https://www.carousell.sg/p/ikea-mittzon-standing-desk-walnut-veneer-white-1446192666/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=4MKix0TZyWZbc270&t-referrer_search_query=ikea%20desk&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-ikea-desk-card.png",
+      "raw_photo": "assets/carousell/decoy-ikea-desk.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-office-chair",
+      "query": "office chair",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Ergonomic Mesh Office Chair with Lumbar Support / S$35 / Lightly used",
+      "real_listing_url": "https://www.carousell.sg/p/ergonomic-mesh-office-chair-with-lumbar-support-1446192818/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=zSFodytTjq7yW2Md&t-referrer_search_query=office%20chair&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-office-chair-card.png",
+      "raw_photo": "assets/carousell/decoy-office-chair.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-nintendo-switch",
+      "query": "nintendo switch",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Nintendo Switch 2 Games Super Mario Party Jamboree Super Smash Bros The legend of Zelda Br",
+      "real_listing_url": "https://www.carousell.sg/p/nintendo-switch-2-games-super-mario-party-jamboree-super-smash-bros-the-legend-of-zelda-breath-of-the-wild-tears-of-the-kingdom-botw-super-smash-bros-ultimate-nintendo-switch-sports-animal-crossing-new-horizons-just-dance-overcooked-fc-26-fifa-26-nba-2k26-1235007489/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=G70pVZ0qVG50s4Lt&t-referrer_search_query=nintendo%20switch&t-referrer_sort_by=popular&t-tap_index=1",
+      "card_screenshot": "assets/carousell/decoy-nintendo-switch-card.png",
+      "raw_photo": "assets/carousell/decoy-nintendo-switch.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-air-fryer",
+      "query": "air fryer",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / nnio 4L Digital Glass Air Fryer N4090GAF / S$60 / Brand new",
+      "real_listing_url": "https://www.carousell.sg/p/nnio-4l-digital-glass-air-fryer-n4090gaf-1429849104/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=PXXpyic-A_A6qrT1&t-referrer_search_query=air%20fryer&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-air-fryer-card.png",
+      "raw_photo": "assets/carousell/decoy-air-fryer.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-bicycle",
+      "query": "bicycle",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Bicycle Lock / S$3 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/bicycle-lock-1446193726/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=JFWULARq8O74s2V8&t-referrer_search_query=bicycle&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-bicycle-card.png",
+      "raw_photo": "assets/carousell/decoy-bicycle.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-coffee-machine",
+      "query": "coffee machine",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Breville the Barista Express Impress Espresso Coffee Machine - BE876 / ",
+      "real_listing_url": "https://www.carousell.sg/p/breville-the-barista-express-impress-espresso-coffee-machine-be876-1442311983/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=I-OpLhpqrYfREDj9&t-referrer_search_query=coffee%20machine&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-coffee-machine-card.png",
+      "raw_photo": "assets/carousell/decoy-coffee-machine.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-mechanical-keyboard",
+      "query": "mechanical keyboard",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / MCHOSE Z75S 75% Mechanical Keyboard / S$85 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/mchose-z75s-75-mechanical-keyboard-1428367919/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=QIsO4QA6rJrwynAy&t-referrer_search_query=mechanical%20keyboard&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-mechanical-keyboard-card.png",
+      "raw_photo": "assets/carousell/decoy-mechanical-keyboard.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-monitor",
+      "query": "monitor",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Dell S3225QC Monitor Stand \u2014 Brand New in Original Packaging / S$25 / B",
+      "real_listing_url": "https://www.carousell.sg/p/dell-s3225qc-monitor-stand-\u2014-brand-new-in-original-packaging-1432559205/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=2kkGc7Io7aQiZD3d&t-referrer_search_query=monitor&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-monitor-card.png",
+      "raw_photo": "assets/carousell/decoy-monitor.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-lego-set",
+      "query": "lego set",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Lego Kai (Red Legs & Jacket, from Set 70620) / S$75 / Lightly used",
+      "real_listing_url": "https://www.carousell.sg/p/lego-kai-red-legs-jacket-from-set-70620-1443241037/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=UmK5Y8fnyNpRvT65&t-referrer_search_query=lego%20set&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-lego-set-card.png",
+      "raw_photo": "assets/carousell/decoy-lego-set.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-acoustic-guitar",
+      "query": "acoustic guitar",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "B.C. Rich BCR3TRD Red Acoustic Guitar / S$240 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/b-c-rich-bcr3trd-red-acoustic-guitar-1445351449/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=zSVcJpGRF2Eppq_K&t-referrer_search_query=acoustic%20guitar&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-acoustic-guitar-card.png",
+      "raw_photo": "assets/carousell/decoy-acoustic-guitar.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-backpack",
+      "query": "backpack",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Lacoste Black Backpack with Logo Tape / S$60 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/lacoste-black-backpack-with-logo-tape-1446194302/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=RCFDLqmOplAZHVCX&t-referrer_search_query=backpack&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-backpack-card.png",
+      "raw_photo": "assets/carousell/decoy-backpack.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-baby-stroller",
+      "query": "baby stroller",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Lightweight Baby Stroller / S$68 / Brand new",
+      "real_listing_url": "https://www.carousell.sg/p/lightweight-baby-stroller-1446187432/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=fVkP8NmGqXgO7TTS&t-referrer_search_query=baby%20stroller&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-baby-stroller-card.png",
+      "raw_photo": "assets/carousell/decoy-baby-stroller.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-bookshelf",
+      "query": "bookshelf",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / White 4-Tier Bookshelf with Wood Top / S$25 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/white-4-tier-bookshelf-with-wood-top-1446182394/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=alTTlkX4u6wHmb3W&t-referrer_search_query=bookshelf&t-referrer_sort_by=popular&t-tap_index=1",
+      "card_screenshot": "assets/carousell/decoy-bookshelf-card.png",
+      "raw_photo": "assets/carousell/decoy-bookshelf.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-uniqlo-jacket",
+      "query": "uniqlo jacket",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Uniqlo Type 2 Denim Jacket XL / S$35 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/uniqlo-type-2-denim-jacket-xl-1445422675/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=hJb1uPAh4VVQtTfV&t-referrer_search_query=uniqlo%20jacket&t-referrer_sort_by=popular&t-tap_index=1",
+      "card_screenshot": "assets/carousell/decoy-uniqlo-jacket-card.png",
+      "raw_photo": "assets/carousell/decoy-uniqlo-jacket.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-board-game",
+      "query": "board game",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Concordia Venus Board Game / S$85 / Brand new",
+      "real_listing_url": "https://www.carousell.sg/p/concordia-venus-board-game-1446183682/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=3Km2DvEwXqp6Y2w-&t-referrer_search_query=board%20game&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-board-game-card.png",
+      "raw_photo": "assets/carousell/decoy-board-game.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-rice-cooker",
+      "query": "rice cooker",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Tefal Rice Cooker / S$30 / Lightly used",
+      "real_listing_url": "https://www.carousell.sg/p/tefal-rice-cooker-1446189728/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=erEHtfDmt1pmxJ7y&t-referrer_search_query=rice%20cooker&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-rice-cooker-card.png",
+      "raw_photo": "assets/carousell/decoy-rice-cooker.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-camera-lens",
+      "query": "camera lens",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Fujifilm X-M5 Mirrorless Camera with Lens / S$1,000 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/fujifilm-x-m5-mirrorless-camera-with-lens-1446187372/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=52a4a59sWBe0-BPZ&t-referrer_search_query=camera%20lens&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-camera-lens-card.png",
+      "raw_photo": "assets/carousell/decoy-camera-lens.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-standing-fan",
+      "query": "standing fan",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Mistral 16\" Stand Fan with Remote / S$45 / Brand new",
+      "real_listing_url": "https://www.carousell.sg/p/mistral-16-stand-fan-with-remote-1445329855/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=6sWzaOJF_nh03wHU&t-referrer_search_query=standing%20fan&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-standing-fan-card.png",
+      "raw_photo": "assets/carousell/decoy-standing-fan.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-dyson-vacuum",
+      "query": "dyson vacuum",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Dyson V12s Origin Submarine Wet & Dry Vacuum / S$550 / Brand new",
+      "real_listing_url": "https://www.carousell.sg/p/dyson-v12s-origin-submarine-wet-dry-vacuum-1446193003/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=NfRgIqb8qKrbrbHF&t-referrer_search_query=dyson%20vacuum&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-dyson-vacuum-card.png",
+      "raw_photo": "assets/carousell/decoy-dyson-vacuum.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-electric-kettle",
+      "query": "electric kettle",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "BRAND NEW Sencor electric glass kettle / S$10 / Brand new",
+      "real_listing_url": "https://www.carousell.sg/p/brand-new-sencor-electric-glass-kettle-1446084099/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=0nnLFzzooVD0C38f&t-referrer_search_query=electric%20kettle&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-electric-kettle-card.png",
+      "raw_photo": "assets/carousell/decoy-electric-kettle.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-yoga-mat",
+      "query": "yoga mat",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Yoga Mat Towel - Pink / S$8 / Brand new / Free delivery",
+      "real_listing_url": "https://www.carousell.sg/p/yoga-mat-towel-pink-1432559916/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=L6BkeJfIYnb-0qEN&t-referrer_search_query=yoga%20mat&t-referrer_sort_by=popular&t-tap_index=2",
+      "card_screenshot": "assets/carousell/decoy-yoga-mat-card.png",
+      "raw_photo": "assets/carousell/decoy-yoga-mat.jpg",
+      "overlay": null
+    },
+    {
+      "slug": "decoy-dining-table",
+      "query": "dining table",
+      "is_scam": false,
+      "archetype": "none",
+      "real_title": "Buyer Protection / Marble Dining Table with 4 Chairs and Cabinet / S$135 / Like new",
+      "real_listing_url": "https://www.carousell.sg/p/marble-dining-table-with-4-chairs-and-cabinet-1446194954/?t-id=yRsPhreoCo_1782534372239&t-referrer_browse_type=search_results&t-referrer_page_type=search&t-referrer_request_id=burWtKYtYF63ZTbt&t-referrer_search_query=dining%20table&t-referrer_sort_by=popular&t-tap_index=0",
+      "card_screenshot": "assets/carousell/decoy-dining-table-card.png",
+      "raw_photo": "assets/carousell/decoy-dining-table.jpg",
+      "overlay": null
+    }
+  ]
+}
