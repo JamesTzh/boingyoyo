@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scam School — Pitch Deck</title>
+
+<!-- ===========================================================
+     FONTS  (Fontshare + Google) — never system fonts
+     Cabinet Grotesk  → display headlines
+     General Sans     → body
+     Bespoke Stencil  → hazard / stamp accents (fits "warning" theme)
+     JetBrains Mono    → chat, data, listing UI, kickers
+     =========================================================== -->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=general-sans@400,500,600,700&f[]=bespoke-stencil@400,500,700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+/* ===========================================================
+   THEME TOKENS — change these to restyle the whole deck
+   Aesthetic: "controlled danger" — security console dark, hazard
+   amber accent, with a red(scam) → green(safe) emotional arc.
+   =========================================================== */
+:root {
+    --bg:        #0B0D11;   /* near-black base */
+    --bg-2:      #14171D;
+    --panel:     #181C23;
+    --panel-2:   #1F242D;
+    --ink:       #F4F1EA;   /* warm off-white */
+    --ink-soft:  #AEB4BE;
+    --muted:     #6C727C;
+    --line:      rgba(244,241,234,0.07);
+    --line-2:    rgba(244,241,234,0.14);
+
+    --amber:     #FFC53D;   /* primary hazard accent */
+    --amber-soft:rgba(255,197,61,0.13);
+    --red:       #FF5247;   /* scam / danger / caught */
+    --red-soft:  rgba(255,82,71,0.13);
+    --green:     #38D9A9;   /* trust / defended / learned */
+    --green-soft:rgba(56,217,169,0.13);
+
+    --slide-bg:  var(--bg);
+    --stage-bg:  #050608;
+
+    /* Typography */
+    --display: 'Cabinet Grotesk', sans-serif;
+    --body:    'General Sans', sans-serif;
+    --stencil: 'Bespoke Stencil', sans-serif;
+    --mono:    'JetBrains Mono', monospace;
+
+    /* Motion */
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur: 0.7s;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===========================================================
+   viewport-base.css  (INCLUDED IN FULL — mandatory fixed stage)
+   =========================================================== */
+html, body {
+    width: 100%; height: 100%; margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-viewport {
+    position: fixed; inset: 0; overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-stage {
+    position: absolute; left: 0; top: 0;
+    width: 1920px; height: 1080px; overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+.slide {
+    position: absolute; inset: 0;
+    width: 1920px; height: 1080px; overflow: hidden;
+    display: block;
+    visibility: hidden; opacity: 0; pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+.slide.active, .slide.visible {
+    visibility: visible; opacity: 1; pointer-events: auto; z-index: 1;
+}
+img, video, canvas, svg { max-width: 100%; max-height: 100%; }
+.deck-controls {
+    position: fixed; left: 50%; bottom: 22px;
+    transform: translateX(-50%); z-index: 1000;
+}
+@media print {
+    html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+    .deck-viewport { position: static; overflow: visible; background: #fff; }
+    .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+    .slide {
+        position: relative; display: block !important;
+        visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        width: 1920px; height: 1080px; break-after: page; page-break-after: always;
+    }
+    .slide:last-child { break-after: auto; page-break-after: auto; }
+    .deck-controls { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* ===========================================================
+   SLIDE ATMOSPHERE — dot/grid + radial glow + vignette.
+   Per-slide accent glow set via --glow / --glow-x / --glow-y.
+   (Placed AFTER viewport-base so it wins on .slide background.)
+   =========================================================== */
+.slide {
+    background:
+        radial-gradient(58% 70% at var(--glow-x,82%) var(--glow-y,12%),
+            var(--glow, var(--amber-soft)) 0%, transparent 62%),
+        radial-gradient(120% 120% at 50% 120%, rgba(0,0,0,0.55) 0%, transparent 55%),
+        linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 64px 64px,
+        linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 64px 64px,
+        var(--bg);
+    font-family: var(--body);
+    color: var(--ink);
+}
+/* thin top hazard hairline on every content slide */
+.slide::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px;
+    background: repeating-linear-gradient(45deg, var(--amber) 0 20px, transparent 20px 40px);
+    opacity: 0.5;
+}
+
+.frame {
+    position: absolute; inset: 0;
+    padding: 96px 120px;
+    display: flex; flex-direction: column;
+}
+
+/* ===========================================================
+   SHARED ATOMS
+   =========================================================== */
+.kicker {
+    font-family: var(--mono);
+    font-size: 22px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--amber);
+    display: flex; align-items: center; gap: 16px;
+}
+.kicker::before {
+    content: ""; width: 46px; height: 2px; background: var(--amber);
+}
+.kicker .dim { color: var(--muted); }
+
+h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 0.98; letter-spacing: -0.02em; }
+.body-lg { font-size: 34px; line-height: 1.45; color: var(--ink-soft); font-weight: 400; max-width: 1180px; }
+.body-md { font-size: 27px; line-height: 1.5; color: var(--ink-soft); }
+.accent { color: var(--amber); }
+.red { color: var(--red); }
+.green { color: var(--green); }
+strong { font-weight: 700; color: var(--ink); }
+
+.tag {
+    font-family: var(--mono); font-size: 19px; letter-spacing: 0.04em;
+    padding: 12px 20px; border: 1px solid var(--line-2); border-radius: 999px;
+    color: var(--ink-soft); background: rgba(255,255,255,0.02);
+    display: inline-flex; align-items: center; gap: 10px;
+}
+.tag .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--amber); }
+
+/* page chrome */
+.page-meta {
+    position: absolute; left: 120px; bottom: 56px;
+    font-family: var(--mono); font-size: 18px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+}
+.brand-meta {
+    position: absolute; right: 120px; bottom: 56px;
+    font-family: var(--mono); font-size: 18px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+}
+
+/* ===========================================================
+   REVEAL ANIMATIONS — fire when slide gets .visible
+   =========================================================== */
+.reveal { opacity: 0; transform: translateY(34px);
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); }
+.slide.visible .reveal { opacity: 1; transform: translateY(0); }
+.reveal.blur { filter: blur(12px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), filter var(--dur) var(--ease); }
+.slide.visible .reveal.blur { filter: blur(0); }
+.d1{transition-delay:.06s}.d2{transition-delay:.16s}.d3{transition-delay:.26s}
+.d4{transition-delay:.36s}.d5{transition-delay:.46s}.d6{transition-delay:.56s}
+.d7{transition-delay:.66s}.d8{transition-delay:.76s}
+/* In print/PDF export, force every reveal element to its final visible state */
+@media print {
+    .reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
+}
+
+/* =====================  SLIDE 1 — TITLE  ===================== */
+#s1 { --glow-x: 78%; --glow-y: 18%; }
+#s1 .frame { justify-content: center; }
+.s1-kicker { margin-bottom: 40px; }
+.s1-title { font-size: 240px; line-height: 0.86; font-weight: 800; }
+.s1-title .ln2 { color: transparent; -webkit-text-stroke: 3px var(--ink); }
+.s1-tagline { font-family: var(--stencil); font-weight: 700; font-size: 58px;
+    color: var(--amber); margin-top: 44px; letter-spacing: 0.01em; }
+.s1-sub { font-size: 30px; color: var(--ink-soft); margin-top: 26px; max-width: 900px; line-height: 1.45; }
+.s1-tape {
+    position: absolute; top: 0; right: 0; width: 360px; height: 96px;
+    background: repeating-linear-gradient(45deg, var(--amber) 0 30px, #0B0D11 30px 60px);
+    opacity: 0.9;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+}
+
+/* =====================  SLIDE 2 — PROBLEM  ===================== */
+#s2 { --glow: var(--red-soft); --glow-x: 88%; --glow-y: 80%; }
+.cols { display: flex; gap: 80px; flex: 1; align-items: center; }
+.col-l { flex: 1.15; } .col-r { flex: 1; }
+.stat-num { font-family: var(--display); font-weight: 800; font-size: 300px;
+    line-height: 0.82; color: var(--amber); letter-spacing: -0.04em; }
+.stat-cap { font-size: 38px; line-height: 1.3; color: var(--ink); margin-top: 8px; max-width: 640px; font-weight: 500; }
+.pull { font-family: var(--display); font-weight: 700; font-size: 46px; color: var(--ink);
+    margin-top: 40px; line-height: 1.1; }
+.pull .red { white-space: nowrap; }
+/* ignored help-article card */
+.ghost-card { background: var(--panel); border: 1px solid var(--line-2); border-radius: 18px;
+    padding: 36px 38px; position: relative; opacity: 0.92; }
+.ghost-card .gc-top { display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--mono); font-size: 18px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.ghost-card .gc-x { color: var(--muted); font-size: 26px; }
+.ghost-card h4 { font-family: var(--display); font-weight: 700; font-size: 30px; color: var(--ink-soft); margin: 22px 0 16px; }
+.ghost-line { height: 14px; border-radius: 7px; background: var(--panel-2); margin: 12px 0; }
+.ghost-line.w1{width:100%}.ghost-line.w2{width:86%}.ghost-line.w3{width:64%}
+.ghost-stamp { position: absolute; right: 30px; bottom: 26px; font-family: var(--mono);
+    font-size: 18px; color: var(--muted); letter-spacing: 0.12em; }
+
+/* =====================  SLIDE 3 — INSIGHT  ===================== */
+#s3 { --glow: var(--green-soft); --glow-x: 84%; --glow-y: 16%; }
+.s3-head { font-size: 92px; line-height: 1.02; max-width: 1480px; }
+.s3-head .stroke { color: transparent; -webkit-text-stroke: 2px var(--amber); }
+.vax { display: flex; align-items: stretch; gap: 28px; margin-top: 72px; }
+.vax-step { flex: 1; background: var(--panel); border: 1px solid var(--line-2);
+    border-radius: 18px; padding: 36px 36px 40px; position: relative; }
+.vax-step .num { font-family: var(--mono); font-size: 18px; color: var(--amber); letter-spacing: 0.2em; }
+.vax-step h4 { font-family: var(--display); font-weight: 700; font-size: 36px; margin: 18px 0 12px; }
+.vax-step p { font-size: 23px; color: var(--ink-soft); line-height: 1.4; }
+.vax-arrow { align-self: center; color: var(--muted); font-size: 40px; flex: 0 0 auto; }
+.s3-tie { margin-top: 50px; font-family: var(--display); font-weight: 700; font-size: 40px; }
+
+/* =====================  SLIDE 4 — WHAT IT IS  ===================== */
+#s4 { --glow-x: 86%; --glow-y: 80%; }
+.s4-head { font-size: 88px; max-width: 1050px; line-height: 1.0; }
+.s4-sub { margin-top: 30px; }
+.chips { display: flex; gap: 16px; margin-top: 44px; flex-wrap: wrap; }
+/* marketplace grid */
+.market { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.lcard { background: var(--panel); border: 1px solid var(--line-2); border-radius: 16px; overflow: hidden; }
+.lcard .thumb { height: 120px; background: linear-gradient(135deg, #232934, #161A20); }
+.lcard .meta { padding: 16px 18px; }
+.lcard .meta .t { font-size: 19px; color: var(--ink-soft); font-family: var(--mono); }
+.lcard .meta .p { font-size: 24px; font-weight: 700; color: var(--ink); font-family: var(--display); margin-top: 6px; }
+.lcard.bait { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-soft), 0 22px 50px rgba(255,82,71,0.18); position: relative; }
+.lcard.bait .thumb { background: linear-gradient(135deg, #3a2422, #221416); }
+.lcard.bait .p { color: var(--red); }
+.lcard.bait .flagtag { position: absolute; top: 12px; right: 12px; font-family: var(--mono);
+    font-size: 14px; background: var(--red); color: #fff; padding: 5px 10px; border-radius: 6px; letter-spacing: 0.06em; }
+
+/* =====================  SLIDE 5 — HOW IT WORKS  ===================== */
+#s5 { --glow-x: 20%; --glow-y: 16%; }
+.s5-head { font-size: 78px; max-width: 1500px; line-height: 1.02; }
+.s5-head .accent { font-family: var(--stencil); font-weight: 700; }
+.s5-body { display: flex; gap: 70px; margin-top: 56px; flex: 1; }
+/* chat mock */
+.chat { flex: 0 0 620px; background: var(--panel); border: 1px solid var(--line-2);
+    border-radius: 22px; padding: 28px 28px 26px; align-self: flex-start; }
+.chat-top { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.chat-av { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg,#3a3f4a,#22262e); }
+.chat-name { font-family: var(--display); font-weight: 700; font-size: 24px; }
+.chat-name span { display: block; font-family: var(--mono); font-size: 15px; color: var(--green); font-weight: 400; margin-top: 2px; }
+.bubble { font-size: 22px; line-height: 1.4; padding: 16px 20px; border-radius: 16px; margin: 14px 0; max-width: 80%; }
+.bubble.them { background: var(--panel-2); color: var(--ink); border-bottom-left-radius: 5px; }
+.bubble.me { background: var(--amber); color: #1a1505; margin-left: auto; border-bottom-right-radius: 5px; font-weight: 500; }
+.bubble.flag { background: var(--red-soft); border: 1px solid var(--red); color: var(--ink); }
+.flag-note { font-family: var(--mono); font-size: 15px; color: var(--red); display: flex; align-items: center; gap: 8px; margin: 6px 0 0 4px; }
+/* steps */
+.steps { flex: 1; display: flex; flex-direction: column; gap: 0; }
+.step { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.step:last-child { border-bottom: none; }
+.step .sn { font-family: var(--mono); font-size: 20px; color: var(--amber); flex: 0 0 46px; }
+.step .sx { font-size: 27px; color: var(--ink); }
+.step.boom .sx { color: var(--red); font-weight: 600; }
+.step.boom .sn { color: var(--red); }
+
+/* =====================  SLIDE 6 — DEMO MOMENT  ===================== */
+#s6 { --glow: var(--red-soft); --glow-x: 50%; --glow-y: 50%; }
+#s6 .frame { align-items: center; justify-content: center; text-align: center; }
+.live { font-family: var(--mono); font-size: 24px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--red); display: flex; align-items: center; gap: 14px; margin-bottom: 44px; }
+.live .pulse { width: 16px; height: 16px; border-radius: 50%; background: var(--red); animation: pulse 1.4s infinite; }
+@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(255,82,71,0.6)} 70%{box-shadow:0 0 0 22px rgba(255,82,71,0)} 100%{box-shadow:0 0 0 0 rgba(255,82,71,0)} }
+.s6-head { font-size: 132px; line-height: 0.98; max-width: 1500px; }
+.s6-head .stamp { font-family: var(--stencil); color: var(--red); }
+.s6-sub { font-family: var(--mono); font-size: 28px; color: var(--ink-soft); margin-top: 40px; letter-spacing: 0.1em; }
+
+/* =====================  SLIDE 7 — DUAL OUTPUT  ===================== */
+#s7 { --glow-x: 50%; --glow-y: 8%; }
+.s7-head { font-size: 74px; max-width: 1520px; line-height: 1.04; }
+.duo { display: flex; gap: 32px; margin-top: 56px; flex: 1; }
+.duo-card { flex: 1; border-radius: 22px; padding: 44px 46px; border: 1px solid var(--line-2); background: var(--panel); position: relative; }
+.duo-card.buyer { border-color: rgba(56,217,169,0.4); box-shadow: inset 0 0 0 1px rgba(56,217,169,0.12); }
+.duo-card.team  { border-color: rgba(255,197,61,0.4); box-shadow: inset 0 0 0 1px rgba(255,197,61,0.12); }
+.duo-card .label { font-family: var(--mono); font-size: 19px; letter-spacing: 0.2em; text-transform: uppercase; }
+.duo-card.buyer .label { color: var(--green); }
+.duo-card.team .label { color: var(--amber); }
+.duo-card h3 { font-size: 44px; margin: 18px 0 24px; line-height: 1.05; }
+.duo-card ul { list-style: none; }
+.duo-card li { font-size: 26px; color: var(--ink-soft); line-height: 1.35; padding: 12px 0 12px 34px; position: relative; }
+.duo-card li::before { content: ""; position: absolute; left: 0; top: 22px; width: 14px; height: 14px; border-radius: 4px; }
+.duo-card.buyer li::before { background: var(--green); }
+.duo-card.team li::before { background: var(--amber); }
+.s7-foot { margin-top: 46px; font-family: var(--display); font-weight: 700; font-size: 40px; text-align: center; }
+
+/* =====================  SLIDE 8 — CLOSE  ===================== */
+#s8 { --glow-x: 22%; --glow-y: 84%; }
+#s8 .frame { justify-content: center; }
+.s8-head { font-size: 116px; line-height: 1.0; }
+.s8-head .ln2 { color: var(--amber); font-family: var(--stencil); font-weight: 700; }
+.s8-lock { display: flex; align-items: center; gap: 26px; margin-top: 64px; }
+.s8-lock .mark { font-family: var(--display); font-weight: 800; font-size: 40px; letter-spacing: -0.01em; }
+.s8-lock .bar { width: 2px; height: 44px; background: var(--line-2); }
+.s8-pillars { display: flex; gap: 14px; }
+.s8-foot-tape { position: absolute; left: 0; bottom: 0; width: 100%; height: 16px;
+    background: repeating-linear-gradient(45deg, var(--amber) 0 30px, #0B0D11 30px 60px); opacity: 0.75; }
+
+/* ===========================================================
+   DECK CHROME — progress + edit affordance (outside stage)
+   =========================================================== */
+.deck-controls {
+    font-family: var(--mono); font-size: 16px; letter-spacing: 0.2em;
+    color: var(--muted); background: rgba(10,12,16,0.7);
+    backdrop-filter: blur(8px); border: 1px solid var(--line-2);
+    padding: 9px 18px; border-radius: 999px; display: flex; gap: 14px; align-items: center;
+}
+.deck-controls .now { color: var(--amber); }
+.deck-controls .hint { color: var(--muted); opacity: 0.7; }
+
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle { position: fixed; top: 18px; left: 18px; z-index: 10001;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    background: var(--panel); border: 1px solid var(--line-2); color: var(--ink);
+    font-size: 18px; padding: 8px 12px; border-radius: 10px; cursor: pointer; font-family: var(--mono); }
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+.edit-toggle.active { border-color: var(--amber); color: var(--amber); }
+body.editing [contenteditable="true"] { outline: 2px dashed rgba(255,197,61,0.5); outline-offset: 4px; border-radius: 4px; }
+body.editing [contenteditable="true"]:focus { outline: 2px solid var(--amber); }
+.edit-banner { position: fixed; top: 18px; left: 50%; transform: translateX(-50%); z-index: 10001;
+    font-family: var(--mono); font-size: 14px; color: var(--amber); background: rgba(10,12,16,0.85);
+    border: 1px solid var(--amber); padding: 7px 16px; border-radius: 999px; display: none; }
+body.editing .edit-banner { display: block; }
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+    <!-- ============ SLIDE 1 — TITLE ============ -->
+    <section class="slide title-slide active" id="s1">
+        <div class="s1-tape reveal blur"></div>
+        <div class="frame">
+            <div class="kicker s1-kicker reveal d1">Trust · Commerce &amp; Fraud <span class="dim">/ hackathon</span></div>
+            <h1 class="s1-title reveal d2">SCAM<br><span class="ln2">SCHOOL</span></h1>
+            <div class="s1-tagline reveal d3">A vaccine for online scams.</div>
+            <p class="s1-sub reveal d4">Don't warn people about fraud. Let them safely <strong>survive</strong> a scam — so the real one never lands.</p>
+        </div>
+        <div class="page-meta">01 / 08</div>
+        <div class="brand-meta">Scam School</div>
+    </section>
+
+    <!-- ============ SLIDE 2 — PROBLEM ============ -->
+    <section class="slide" id="s2">
+        <div class="frame">
+            <div class="kicker reveal d1">01 — The Problem</div>
+            <div class="cols">
+                <div class="col-l">
+                    <div class="stat-num reveal d2">40%</div>
+                    <div class="stat-cap reveal d3">of secondhand buyers are <strong>afraid of getting scammed.</strong></div>
+                    <div class="pull reveal d4">But the defense today is <span class="red">passive</span>.</div>
+                    <p class="body-md reveal d5" style="margin-top:18px;max-width:660px;">Help articles and warning banners nobody reads — until the money's already gone. You can't read your way to instinct.</p>
+                </div>
+                <div class="col-r">
+                    <div class="ghost-card reveal d4">
+                        <div class="gc-top"><span>Help Center › Avoiding scams</span><span class="gc-x">✕</span></div>
+                        <h4>5 tips to shop safely</h4>
+                        <div class="ghost-line w1"></div>
+                        <div class="ghost-line w2"></div>
+                        <div class="ghost-line w3"></div>
+                        <div class="ghost-stamp">dismissed · 0 read</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-meta">02 / 08</div>
+        <div class="brand-meta">Scam School</div>
+    </section>
+
+    <!-- ============ SLIDE 3 — INSIGHT ============ -->
+    <section class="slide" id="s3">
+        <div class="frame">
+            <div class="kicker reveal d1">02 — The Insight</div>
+            <h2 class="s3-head reveal d2" style="margin-top:28px;">You can't teach instinct.<br>You have to <span class="stroke">trigger</span> it.</h2>
+            <div class="vax">
+                <div class="vax-step reveal d3">
+                    <div class="num">A WEAKENED THREAT</div>
+                    <h4>Survivable scam</h4>
+                    <p>A realistic but planted scam — dangerous-feeling, but it can't actually hurt you.</p>
+                </div>
+                <div class="vax-arrow reveal d4">→</div>
+                <div class="vax-step reveal d4">
+                    <div class="num">SAFE EXPOSURE</div>
+                    <h4>You engage it</h4>
+                    <p>You take the bait in a consequence-free environment and feel yourself nearly fall.</p>
+                </div>
+                <div class="vax-arrow reveal d5">→</div>
+                <div class="vax-step reveal d5">
+                    <div class="num">REAL IMMUNITY</div>
+                    <h4>Lasting instinct</h4>
+                    <p>Next time it's real, your gut fires the warning — because you've been here before.</p>
+                </div>
+            </div>
+            <div class="s3-tie reveal d6">Scam School is <span class="accent">inoculation</span> for fraud.</div>
+        </div>
+        <div class="page-meta">03 / 08</div>
+        <div class="brand-meta">Scam School</div>
+    </section>
+
+    <!-- ============ SLIDE 4 — WHAT IT IS ============ -->
+    <section class="slide" id="s4">
+        <div class="frame">
+            <div class="kicker reveal d1">03 — What It Is</div>
+            <div class="cols">
+                <div class="col-l">
+                    <h2 class="s4-head reveal d2">An opt-in event any marketplace can run.</h2>
+                    <p class="body-lg s4-sub reveal d3">We hide realistic <strong>fake scam listings</strong> among the real ones. Five scams are out there. Your mission: <strong>find them before they find you.</strong></p>
+                    <div class="chips">
+                        <span class="tag reveal d4"><span class="dot"></span>Opt-in &amp; transparent</span>
+                        <span class="tag reveal d5"><span class="dot"></span>Platform-agnostic</span>
+                        <span class="tag reveal d6"><span class="dot"></span>5 scam archetypes</span>
+                    </div>
+                </div>
+                <div class="col-r">
+                    <div class="market">
+                        <div class="lcard reveal d3"><div class="thumb"></div><div class="meta"><div class="t">Running sneakers US 9</div><div class="p">$75</div></div></div>
+                        <div class="lcard bait reveal d4"><span class="flagtag">PLANTED</span><div class="thumb"></div><div class="meta"><div class="t">iPhone 15 Pro Max — today only</div><div class="p">$420</div></div></div>
+                        <div class="lcard reveal d5"><div class="thumb"></div><div class="meta"><div class="t">Polarized sunglasses</div><div class="p">$45</div></div></div>
+                        <div class="lcard reveal d6"><div class="thumb"></div><div class="meta"><div class="t">Road bike — well kept</div><div class="p">$340</div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-meta">04 / 08</div>
+        <div class="brand-meta">Scam School</div>
+    </section>
+
+    <!-- ============ SLIDE 5 — HOW IT WORKS ============ -->
+    <section class="slide" id="s5">
+        <div class="frame">
+            <div class="kicker reveal d1">04 — How It Works</div>
+            <h2 class="s5-head reveal d2" style="margin-top:24px;">The seller is an <span class="accent">AI</span> running a live scam.</h2>
+            <div class="s5-body">
+                <div class="chat reveal d3">
+                    <div class="chat-top">
+                        <div class="chat-av"></div>
+                        <div class="chat-name">@quickdeals_88<span>AI seller · powered by OpenAI</span></div>
+                    </div>
+                    <div class="bubble them">Still available! But I've got 3 other buyers 😬 Can you pay now to lock it?</div>
+                    <div class="bubble them">Let's just do PayNow on WhatsApp, skip the platform fees 👍</div>
+                    <div class="bubble me">ok sure, what's your number?</div>
+                    <div class="flag-note">⚠ red flag — pushing you off-platform</div>
+                </div>
+                <div class="steps">
+                    <div class="step reveal d3"><span class="sn">01</span><span class="sx">You browse a real marketplace.</span></div>
+                    <div class="step reveal d4"><span class="sn">02</span><span class="sx">You chat with the "seller" — it's an AI.</span></div>
+                    <div class="step reveal d5"><span class="sn">03</span><span class="sx">It runs a live scam, adapting to every reply.</span></div>
+                    <div class="step reveal d6"><span class="sn">04</span><span class="sx">You cross an unsafe line.</span></div>
+                    <div class="step boom reveal d7"><span class="sn">05</span><span class="sx">FREEZE → "You just got scammed." Graded + taught.</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="page-meta">05 / 08</div>
+        <div class="brand-meta">Scam School</div>
+    </section>
+
+    <!-- ============ SLIDE 6 — DEMO MOMENT ============ -->
+    <section class="slide" id="s6">
+        <div class="frame">
+            <div class="live reveal d1"><span class="pulse"></span>Live demo</div>
+            <h2 class="s6-head reveal d2">Now watch a judge<br><span class="stamp">almost fall for it.</span></h2>
+            <div class="s6-sub reveal d4">[ hand over the laptop — and let the AI do the rest ]</div>
+        </div>
+        <div class="page-meta">06 / 08</div>
+        <div class="brand-meta">Scam School</div>
+    </section>
+
+    <!-- ============ SLIDE 7 — DUAL OUTPUT ============ -->
+    <section class="slide" id="s7">
+        <div class="frame">
+            <div class="kicker reveal d1">05 — Why It Matters</div>
+            <h2 class="s7-head reveal d2" style="margin-top:24px;">Every play teaches the buyer —<br>and <span class="accent">arms the platform.</span></h2>
+            <div class="duo">
+                <div class="duo-card buyer reveal d3">
+                    <div class="label">For the buyer</div>
+                    <h3>A lesson they actually feel</h3>
+                    <ul>
+                        <li>A Scam Resistance score + level — Rookie → Guardian</li>
+                        <li>An annotated replay of every red flag</li>
+                        <li>"What you did vs. what you should have"</li>
+                    </ul>
+                </div>
+                <div class="duo-card team reveal d4">
+                    <div class="label">For the trust team</div>
+                    <h3>Live fraud intelligence</h3>
+                    <ul>
+                        <li>Which scams fool the most people</li>
+                        <li>The red flags players miss most</li>
+                        <li>Proof that resistance improves over the event</li>
+                        <li><strong class="accent">+ you, tonight</strong> — this play moves the numbers live</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="s7-foot reveal d5">Education <span class="accent">+</span> Intelligence — drop into <strong>any</strong> marketplace.</div>
+        </div>
+        <div class="page-meta">07 / 08</div>
+        <div class="brand-meta">Scam School</div>
+    </section>
+
+    <!-- ============ SLIDE 8 — CLOSE ============ -->
+    <section class="slide" id="s8">
+        <div class="frame">
+            <h2 class="s8-head reveal d1">Don't warn people<br>about scams.<br><span class="ln2">Let them survive one.</span></h2>
+            <div class="s8-lock reveal d3">
+                <span class="mark">SCAM SCHOOL</span>
+                <span class="bar"></span>
+                <div class="s8-pillars">
+                    <span class="tag"><span class="dot"></span>Novel</span>
+                    <span class="tag"><span class="dot" style="background:var(--green)"></span>Real market</span>
+                    <span class="tag"><span class="dot" style="background:var(--red)"></span>Live demo</span>
+                </div>
+            </div>
+        </div>
+        <div class="s8-foot-tape"></div>
+        <div class="page-meta">08 / 08</div>
+        <div class="brand-meta">Trust · Commerce &amp; Fraud</div>
+    </section>
+
+</main>
+</div>
+
+<!-- progress + edit chrome (outside the scaled stage) -->
+<nav class="deck-controls" aria-label="Slide navigation">
+    <span class="now" id="pgNow">01</span>
+    <span>/</span>
+    <span id="pgTotal">08</span>
+    <span class="hint">← → to move</span>
+</nav>
+<div class="edit-hotzone" title="Edit (E)"></div>
+<button class="edit-toggle" id="editToggle" title="Edit mode (E)">✏️ edit</button>
+<div class="edit-banner">EDIT MODE — click any text · Ctrl+S exports · Esc to exit</div>
+
+<script>
+/* ===========================================================
+   SLIDE CONTROLLER — fixed-stage scaling + navigation
+   =========================================================== */
+class Deck {
+    constructor() {
+        this.slides = Array.from(document.querySelectorAll('.slide'));
+        this.stage = document.getElementById('deckStage');
+        this.i = 0;
+        this.wheelLock = false;
+        document.getElementById('pgTotal').textContent = String(this.slides.length).padStart(2, '0');
+        this.scale();
+        window.addEventListener('resize', () => this.scale());
+        this.bindKeys();
+        this.bindTouch();
+        this.bindWheel();
+        this.show(0);
+    }
+    /* Scale the 1920×1080 stage uniformly into the viewport */
+    scale() {
+        const f = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+        const x = (window.innerWidth - 1920 * f) / 2;
+        const y = (window.innerHeight - 1080 * f) / 2;
+        this.stage.style.transform = `translate(${x}px, ${y}px) scale(${f})`;
+    }
+    show(n) {
+        this.i = Math.max(0, Math.min(n, this.slides.length - 1));
+        this.slides.forEach((s, k) => {
+            const on = k === this.i;
+            s.classList.toggle('active', on);
+            s.classList.toggle('visible', on);
+        });
+        document.getElementById('pgNow').textContent = String(this.i + 1).padStart(2, '0');
+    }
+    next() { this.show(this.i + 1); }
+    prev() { this.show(this.i - 1); }
+    bindKeys() {
+        document.addEventListener('keydown', (e) => {
+            /* don't hijack typing while editing text */
+            if (document.body.classList.contains('editing') && e.target.isContentEditable) {
+                if (e.key === 'Escape') editor.toggle();
+                return;
+            }
+            switch (e.key) {
+                case 'ArrowRight': case ' ': case 'PageDown': e.preventDefault(); this.next(); break;
+                case 'ArrowLeft': case 'PageUp': e.preventDefault(); this.prev(); break;
+                case 'Home': e.preventDefault(); this.show(0); break;
+                case 'End': e.preventDefault(); this.show(this.slides.length - 1); break;
+            }
+        });
+    }
+    bindTouch() {
+        let x0 = null;
+        const v = document.querySelector('.deck-viewport');
+        v.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+        v.addEventListener('touchend', (e) => {
+            if (x0 === null) return;
+            const dx = e.changedTouches[0].clientX - x0;
+            if (Math.abs(dx) > 50) (dx < 0 ? this.next() : this.prev());
+            x0 = null;
+        }, { passive: true });
+    }
+    bindWheel() {
+        window.addEventListener('wheel', (e) => {
+            if (document.body.classList.contains('editing')) return;
+            if (this.wheelLock) return;
+            if (Math.abs(e.deltaY) < 24) return;
+            this.wheelLock = true;
+            (e.deltaY > 0 ? this.next() : this.prev());
+            setTimeout(() => { this.wheelLock = false; }, 700);
+        }, { passive: true });
+    }
+}
+
+/* ===========================================================
+   LIGHTWEIGHT INLINE EDITOR — click-to-edit text, autosave to
+   localStorage, Ctrl+S exports a copy of the edited HTML.
+   =========================================================== */
+class Editor {
+    constructor() {
+        this.KEY = 'scamschool-deck-v1';
+        this.sel = 'h1,h2,h3,h4,p,li,.tag,.kicker,.stat-num,.stat-cap,.s1-tagline,.s3-tie,.s7-foot,.chat-name,.bubble,.sx,.duo-card .label,.mark,.s6-sub,.live';
+        this.nodes = [];
+        document.querySelectorAll('.slide').forEach((slide, si) => {
+            slide.querySelectorAll(this.sel).forEach((el, ei) => {
+                el.dataset.ekey = si + ':' + ei;
+                this.nodes.push(el);
+            });
+        });
+        this.restore();
+        this.isActive = false;
+        document.addEventListener('input', (e) => {
+            if (this.isActive && e.target.dataset && e.target.dataset.ekey) this.save();
+        });
+        document.addEventListener('keydown', (e) => {
+            if ((e.key === 's' || e.key === 'S') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); this.export(); }
+            if ((e.key === 'e' || e.key === 'E') && !e.target.isContentEditable) this.toggle();
+        });
+    }
+    restore() {
+        let data; try { data = JSON.parse(localStorage.getItem(this.KEY) || '{}'); } catch (_) { data = {}; }
+        this.nodes.forEach(el => { if (data[el.dataset.ekey] != null) el.innerHTML = data[el.dataset.ekey]; });
+    }
+    save() {
+        const data = {};
+        this.nodes.forEach(el => { data[el.dataset.ekey] = el.innerHTML; });
+        try { localStorage.setItem(this.KEY, JSON.stringify(data)); } catch (_) {}
+    }
+    toggle() {
+        this.isActive = !this.isActive;
+        document.body.classList.toggle('editing', this.isActive);
+        document.getElementById('editToggle').classList.toggle('active', this.isActive);
+        this.nodes.forEach(el => el.setAttribute('contenteditable', this.isActive ? 'true' : 'false'));
+    }
+    export() {
+        this.save();
+        const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        const blob = new Blob([html], { type: 'text/html' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'scam-school-deck.html';
+        a.click();
+    }
+}
+
+const deck = new Deck();
+const editor = new Editor();
+
+/* edit affordance: hotzone hover (400ms grace) + click + button */
+(function () {
+    const hot = document.querySelector('.edit-hotzone');
+    const btn = document.getElementById('editToggle');
+    let t = null;
+    const showBtn = () => { clearTimeout(t); btn.classList.add('show'); };
+    const hideBtn = () => { t = setTimeout(() => { if (!editor.isActive) btn.classList.remove('show'); }, 400); };
+    hot.addEventListener('mouseenter', showBtn);
+    hot.addEventListener('mouseleave', hideBtn);
+    btn.addEventListener('mouseenter', () => clearTimeout(t));
+    btn.addEventListener('mouseleave', hideBtn);
+    hot.addEventListener('click', () => editor.toggle());
+    btn.addEventListener('click', () => editor.toggle());
+})();
+</script>
+</body>
+</html>
