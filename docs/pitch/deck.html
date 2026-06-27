@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scam School — Pitch Deck</title>
+<title>Phish n Cheats — Pitch Deck</title>
 
 <!-- ===========================================================
      FONTS  (Fontshare + Google) — never system fonts
@@ -201,7 +201,7 @@ strong { font-weight: 700; color: var(--ink); }
 #s1 { --glow-x: 78%; --glow-y: 18%; }
 #s1 .frame { justify-content: center; }
 .s1-kicker { margin-bottom: 40px; }
-.s1-title { font-size: 240px; line-height: 0.86; font-weight: 800; }
+.s1-title { font-size: 190px; line-height: 0.86; font-weight: 800; }
 .s1-title .ln2 { color: transparent; -webkit-text-stroke: 3px var(--ink); }
 .s1-tagline { font-family: var(--stencil); font-weight: 700; font-size: 58px;
     color: var(--amber); margin-top: 44px; letter-spacing: 0.01em; }
@@ -369,12 +369,12 @@ body.editing .edit-banner { display: block; }
         <div class="s1-tape reveal blur"></div>
         <div class="frame">
             <div class="kicker s1-kicker reveal d1">Trust · Commerce &amp; Fraud <span class="dim">/ hackathon</span></div>
-            <h1 class="s1-title reveal d2">SCAM<br><span class="ln2">SCHOOL</span></h1>
+            <h1 class="s1-title reveal d2">PHISH N<br><span class="ln2">CHEATS</span></h1>
             <div class="s1-tagline reveal d3">A vaccine for online scams.</div>
             <p class="s1-sub reveal d4">Don't warn people about fraud. Let them safely <strong>survive</strong> a scam — so the real one never lands.</p>
         </div>
         <div class="page-meta">01 / 08</div>
-        <div class="brand-meta">Scam School</div>
+        <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 2 — PROBLEM ============ -->
@@ -401,7 +401,7 @@ body.editing .edit-banner { display: block; }
             </div>
         </div>
         <div class="page-meta">02 / 08</div>
-        <div class="brand-meta">Scam School</div>
+        <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 3 — INSIGHT ============ -->
@@ -428,10 +428,10 @@ body.editing .edit-banner { display: block; }
                     <p>Next time it's real, your gut fires the warning — because you've been here before.</p>
                 </div>
             </div>
-            <div class="s3-tie reveal d6">Scam School is <span class="accent">inoculation</span> for fraud.</div>
+            <div class="s3-tie reveal d6">Phish n Cheats is <span class="accent">inoculation</span> for fraud.</div>
         </div>
         <div class="page-meta">03 / 08</div>
-        <div class="brand-meta">Scam School</div>
+        <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 4 — WHAT IT IS ============ -->
@@ -459,7 +459,7 @@ body.editing .edit-banner { display: block; }
             </div>
         </div>
         <div class="page-meta">04 / 08</div>
-        <div class="brand-meta">Scam School</div>
+        <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 5 — HOW IT WORKS ============ -->
@@ -488,7 +488,7 @@ body.editing .edit-banner { display: block; }
             </div>
         </div>
         <div class="page-meta">05 / 08</div>
-        <div class="brand-meta">Scam School</div>
+        <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 6 — DEMO MOMENT ============ -->
@@ -499,7 +499,7 @@ body.editing .edit-banner { display: block; }
             <div class="s6-sub reveal d4">[ hand over the laptop — and let the AI do the rest ]</div>
         </div>
         <div class="page-meta">06 / 08</div>
-        <div class="brand-meta">Scam School</div>
+        <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 7 — DUAL OUTPUT ============ -->
@@ -531,7 +531,7 @@ body.editing .edit-banner { display: block; }
             <div class="s7-foot reveal d5">Education <span class="accent">+</span> Intelligence — drop into <strong>any</strong> marketplace.</div>
         </div>
         <div class="page-meta">07 / 08</div>
-        <div class="brand-meta">Scam School</div>
+        <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 8 — CLOSE ============ -->
@@ -539,7 +539,7 @@ body.editing .edit-banner { display: block; }
         <div class="frame">
             <h2 class="s8-head reveal d1">Don't warn people<br>about scams.<br><span class="ln2">Let them survive one.</span></h2>
             <div class="s8-lock reveal d3">
-                <span class="mark">SCAM SCHOOL</span>
+                <span class="mark">PHISH N CHEATS</span>
                 <span class="bar"></span>
                 <div class="s8-pillars">
                     <span class="tag"><span class="dot"></span>Novel</span>
@@ -647,7 +647,7 @@ class Deck {
    =========================================================== */
 class Editor {
     constructor() {
-        this.KEY = 'scamschool-deck-v1';
+        this.KEY = 'phishncheats-deck-v1';
         this.sel = 'h1,h2,h3,h4,p,li,.tag,.kicker,.stat-num,.stat-cap,.s1-tagline,.s3-tie,.s7-foot,.chat-name,.bubble,.sx,.duo-card .label,.mark,.s6-sub,.live';
         this.nodes = [];
         document.querySelectorAll('.slide').forEach((slide, si) => {
@@ -687,7 +687,7 @@ class Editor {
         const blob = new Blob([html], { type: 'text/html' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = 'scam-school-deck.html';
+        a.download = 'phish-n-cheats-deck.html';
         a.click();
     }
 }

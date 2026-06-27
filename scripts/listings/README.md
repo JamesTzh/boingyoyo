@@ -2,7 +2,7 @@
 
 This folder documents how the marketplace dataset in **`src/data/listings.ts`** was produced and how
 to regenerate it. It implements the `Listing` model from
-[`../../docs/specs/scam-school/05-data-and-dashboard.md`](../../docs/specs/scam-school/05-data-and-dashboard.md).
+[`../../docs/specs/phish-n-cheats/05-data-and-dashboard.md`](../../docs/specs/phish-n-cheats/05-data-and-dashboard.md).
 
 > ⚠️ **Point-in-time snapshot.** This was captured from the team's live build workspace while that
 > session was still generating data. It's a working starting point — reconcile with the build's

@@ -1,8 +1,8 @@
-# Scam School — Pitch & Demo Kit
+# Phish n Cheats — Pitch & Demo Kit
 
-Everything for presenting **Scam School** to the judges. Aligned to the approved spec set
-([`../specs/scam-school/00-overview.md`](../specs/scam-school/00-overview.md)) and the PRD
-(`../../scam_school_prd2.md`).
+Everything for presenting **Phish n Cheats** to the judges. Aligned to the approved spec set
+([`../specs/phish-n-cheats/00-overview.md`](../specs/phish-n-cheats/00-overview.md)) and the PRD
+(`../../phish_n_cheats_prd2.md`).
 
 > **Why this matters:** judging is **Innovation 30% · Problem fit/Market 25% · Functionality 25% ·
 > Design 20%**. ~55% of that (Innovation + Market) is *communicated*, not coded — this kit is where
@@ -27,10 +27,10 @@ Everything for presenting **Scam School** to the judges. Aligned to the approved
 
 - **5 archetypes:** off-platform · urgency/flash-sale · deposit-before-meetup · fake-payment-proof · counterfeit.
 - **Grade:** *Scam Resistance* 0–100 (Detection 60 / Caution 25 / Speed 15) → **Rookie · Aware · Sharp · Guardian**.
-- **Trigger:** deterministic client-side **unsafe-action tap** — the LLM never fires the gotcha ([`04-grading-and-reports.md`](../specs/scam-school/04-grading-and-reports.md)).
+- **Trigger:** deterministic client-side **unsafe-action tap** — the LLM never fires the gotcha ([`04-grading-and-reports.md`](../specs/phish-n-cheats/04-grading-and-reports.md)).
 - **Live demo archetype:** off-platform (the MacBook listing); turn on `demoMode` to float it to the top.
-- **Demo brand:** "Marketly" (SGD), re-skinnable via `theme.config.ts` ([`06-ui-and-theming.md`](../specs/scam-school/06-ui-and-theming.md)).
-- **Dashboard:** seeded baseline **+ the live session** ("+ you, tonight") ([`05-data-and-dashboard.md`](../specs/scam-school/05-data-and-dashboard.md)).
+- **Demo brand:** "Marketly" (SGD), re-skinnable via `theme.config.ts` ([`06-ui-and-theming.md`](../specs/phish-n-cheats/06-ui-and-theming.md)).
+- **Dashboard:** seeded baseline **+ the live session** ("+ you, tonight") ([`05-data-and-dashboard.md`](../specs/phish-n-cheats/05-data-and-dashboard.md)).
 
 ## Regenerating the PDF after editing the deck
 

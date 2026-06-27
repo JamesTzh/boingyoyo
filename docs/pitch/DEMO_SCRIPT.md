@@ -1,4 +1,4 @@
-# Scam School — Demo Script & Run-of-Show
+# Phish n Cheats — Demo Script & Run-of-Show
 
 **Target length:** ~3:00 of speaking with a live, interactive demo in the middle.
 **Golden rule:** the pitch *is* the live demo. Talk as little as possible before you get a judge playing. The room remembers the moment a judge almost gets scammed — not your slides.
@@ -12,7 +12,7 @@
 ### 0:00 – 0:20 · Hook + one-liner  `[SLIDE 1: Title]`
 > "Quick question — who here has bought something off Carousell, Facebook Marketplace, eBay? … Keep your hand up if you'd bet you could never get scammed. *(beat)* That confidence is exactly the problem.
 >
-> We built **Scam School** — a vaccine for online scams. Instead of warning people about fraud, we let them safely survive one."
+> We built **Phish n Cheats** — a vaccine for online scams. Instead of warning people about fraud, we let them safely survive one."
 
 *Don't over-explain. Move.*
 
@@ -22,7 +22,7 @@
 ### 0:40 – 1:00 · The insight + what it is  `[SLIDE 3: Inoculation] → [SLIDE 4: What it is]`
 > "So we borrowed an idea from medicine. A vaccine works by exposing you to a weakened, survivable version of a threat so your body learns to fight the real one.
 >
-> Scam School is an **opt-in, time-boxed event** any marketplace can run. We hide realistic fake scam listings among the real ones. Five scams are out there. Your job: find them before they find you. And here's the part that makes it real —"
+> Phish n Cheats is an **opt-in, time-boxed event** any marketplace can run. We hide realistic fake scam listings among the real ones. Five scams are out there. Your job: find them before they find you. And here's the part that makes it real —"
 
 ### 1:00 – 2:15 · LIVE DEMO  `[SLIDE 6: "Watch a judge almost fall for it"]`
 > "— I need a volunteer. Someone who's *sure* they'd never get scammed."
@@ -41,13 +41,13 @@ The "seller" is an **AI running a live scam** (OpenAI). Let the judge converse. 
 *(Why this is bulletproof: the freeze is triggered by tapping a button flagged `unsafe` — it's deterministic client-side logic, the AI never decides when to fire it. The demo can't misfire.)*
 
 ### 2:15 – 2:35 · The grade + the trace  `[stay on the demo screen]`
-> "Now Scam School does what a help article never could: it grades them on the spot — a **Scam Resistance score and a level, from Rookie to Guardian** — replays the conversation, and highlights the exact red flag they missed: 'this is where a real seller would never push you off-platform.' That's a lesson they'll actually remember, because they *felt* it."
+> "Now Phish n Cheats does what a help article never could: it grades them on the spot — a **Scam Resistance score and a level, from Rookie to Guardian** — replays the conversation, and highlights the exact red flag they missed: 'this is where a real seller would never push you off-platform.' That's a lesson they'll actually remember, because they *felt* it."
 
 ### 2:35 – 2:55 · The one-two punch: trust intelligence  `[SLIDE 7: Dual output]`
 > "But the player isn't the only one who learns. **Every play feeds the platform's trust team** a live report: which scams fooled the most people, where they hesitated, which red flags went unnoticed. So it's two products in one — it *teaches the buyer* and it *arms the platform*. And because it's platform-agnostic, any marketplace can drop it in."
 
 ### 2:55 – 3:05 · Close  `[SLIDE 8: Close]`
-> "Don't warn people about scams. **Let them survive one.** That's Scam School."
+> "Don't warn people about scams. **Let them survive one.** That's Phish n Cheats."
 
 *(Stop talking. Smile. Take questions.)*
 

@@ -2,7 +2,7 @@
 
 ## 1. Event framing & consent
 
-Scam School is a **time-boxed, opt-in event**. The player must explicitly opt in on an intro screen
+Phish n Cheats is a **time-boxed, opt-in event**. The player must explicitly opt in on an intro screen
 that states the rules (full copy in [`06-ui-and-theming.md`](06-ui-and-theming.md)):
 
 - Fake scam listings are hidden among real ones.
