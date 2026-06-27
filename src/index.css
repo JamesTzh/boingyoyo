@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #2563eb;
+  --brand-primary-fg: #ffffff;
+  --brand-surface: #ffffff;
+  --brand-danger: #dc2626;
+  --brand-success: #16a34a;
+}
+body { @apply bg-slate-50 text-slate-900; }
