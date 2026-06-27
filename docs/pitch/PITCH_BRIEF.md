@@ -33,7 +33,7 @@ One page to glance at before and during judging. Track: **Trust, Commerce & Frau
 | --- | --- | --- | --- |
 | **Innovation & sponsor tech** | **30%** | Proactive scam *inoculation* is novel; the AI seller improvising a live scam is a *central* OpenAI use, not bolted on; dual output (teach + intel) is a fresh framing. | Slides 3, 5, 7 + the live AI chat |
 | **Problem fit & market value** | **25%** | Platform-agnostic trust layer → far bigger market than one app; extends the education-first strategy marketplaces already use; the trust-team data loop has standalone commercial value. | Slides 2, 7 |
-| **Proof of work / functionality** | **25%** | Fully interactive and demoable — a judge plays it and gets "scammed" live, then sees a real grade. | The live demo |
+| **Proof of work / functionality** | **25%** | Fully working, shown end-to-end — the demo video is one real, unedited play-through: get "scammed," then see the grade. | The demo video |
 | **Design, craft & taste** | **20%** | It's a *game* with a report card and a treasure-hunt feel — polish that stands out against grey fraud dashboards. | The build's UI + this deck |
 
 > **Highest-leverage truth:** 55% of the score (Innovation + Market) is *communicated*, not coded. The demo + this narrative is where those points are won or lost.
@@ -67,31 +67,27 @@ One page to glance at before and during judging. Track: **Trust, Commerce & Frau
 > We measure it: the share of challenges spotted before proceeding, improvement across the event (later challenges handled better than earlier ones), and the final Scam Resistance score + level. The same data that teaches the user proves the impact to the platform.
 
 **"Does it actually work / what did you build?"**
-> Yes — you just played it. The live AI seller, the intervention freeze, per-challenge grading and the annotated trace are working. *(Then offer a second archetype if time.)*
+> Yes — the demo video is one unedited play-through. The live AI seller, the intervention freeze, per-challenge grading and the annotated trace are all working and on screen.
 
 **"What if everyone learns the 5 scams and it gets stale?"**
 > Archetypes are templates; the AI generates fresh listings and conversations each run, and new archetypes plug in as scams evolve. The trust-team feedback loop tells us which new patterns to add first.
 
 ---
 
-## DEMO FAIL-SAFES (see DEMO_SCRIPT.md for full choreography)
-- Turn on **`demoMode`** so a planted listing floats to the top of the feed — no hunting on stage.
-- Pre-load a **45–60s screen recording** of a perfect run; cut to it if wifi/API dies.
-- A savvy judge who *spots* the scam is still a win → the **win screen** ("Nice — you spotted the scam") + a high score, then play the recording so the room still sees the freeze.
-- Tape a one-line instruction to the laptop so the judge doesn't freeze up.
-- Use the **off-platform** archetype live (the MacBook listing) — fastest to trigger via the "Pay on WhatsApp" tap, most recognizable.
+## VIDEO PRODUCTION (full script + shot list in DEMO_SCRIPT.md)
+- Two recordings: **pitch video** (voiceover over the deck) + **demo video** (one unedited play-through). Target ~3:00 total.
+- Turn on **`demoMode`** so the planted listing is fast to reach — no hunting on camera.
+- Demo the **off-platform** archetype (the "Pay on WhatsApp" listing) — fastest, most recognizable trigger.
+- Record real time — **don't speed up the AI chat**; it adapting live is the proof. Burn in captions (judged with sound off).
+- Hold ~1s on the freeze stamp and on the grade. The freeze is deterministic client-side, so it fires every take.
 
 ---
 
-## PRE-PRESENTATION CHECKLIST
-- [ ] Laptop charged, screen mirroring tested on the actual room display
-- [ ] Wifi tested; phone hotspot as backup
-- [ ] OpenAI API key working + a little quota headroom; one rehearsal call made today
-- [ ] `demoMode` ON; theme set to "Marketly"
-- [ ] Fallback screen recording saved locally and openable offline
-- [ ] One planted listing + one genuine decoy confirmed working end-to-end
-- [ ] Trust-team dashboard screen loads (seeded + "+ you, tonight" live)
-- [ ] Browser zoom set so text is readable from the back of the room
-- [ ] Notifications/Slack silenced; demo run in a clean browser window
-- [ ] Roles assigned: Pitcher / Driver / Backup volunteer
-- [ ] One full rehearsal of all 3 demo branches done out loud
+## SUBMISSION CHECKLIST
+- [ ] OpenAI API key working + quota headroom; warm-up chat done so the first reply isn't cold
+- [ ] `demoMode` ON; theme set; one planted listing + one genuine decoy working end-to-end
+- [ ] Trust-team dashboard loads (seeded + "+ you, tonight" live)
+- [ ] Demo recorded at 1080p/60, real time, 2–3 takes — cleanest one picked
+- [ ] Captions burned in; sharp sound cue on the freeze; total runtime under ~3:00
+- [ ] Pitch VO recorded over the deck; hard cut into the demo at the title card
+- [ ] Final video plays start-to-finish with sound off and on; uploaded + link tested

@@ -334,6 +334,36 @@ strong { font-weight: 700; color: var(--ink); }
     background: repeating-linear-gradient(45deg, var(--amber) 0 30px, #0B0D11 30px 60px); opacity: 0.75; }
 
 /* ===========================================================
+   EVIDENCE SCREENSHOTS — real Reddit/Carousell posts (S2 + S2B)
+   Real receipts beat any stat. Framed like exhibits.
+   =========================================================== */
+.shot { border: 1px solid var(--line-2); border-radius: 14px; overflow: hidden;
+    background: #0d0f13; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+.shot img { width: 100%; display: block; }
+.shot .cap { font-family: var(--mono); font-size: 17px; line-height: 1.35; color: var(--ink-soft);
+    padding: 15px 18px; border-top: 1px solid var(--line); background: var(--panel); letter-spacing: 0.01em; }
+.shot .cap b { color: var(--amber); font-weight: 500; }
+
+/* Slide 2 — overconfidence */
+#s2 .cols { gap: 76px; }
+.s2-quote { font-family: var(--stencil); font-weight: 700; font-size: 116px; line-height: 0.94;
+    color: var(--ink); letter-spacing: -0.01em; }
+.s2-quote .q { color: var(--amber); }
+.s2-line { font-family: var(--display); font-weight: 700; font-size: 46px; line-height: 1.12;
+    margin-top: 34px; max-width: 720px; }
+.s2-sub { margin-top: 22px; max-width: 640px; }
+.s2-hero { width: 100%; max-width: 840px; align-self: center; }
+
+/* Slide 2B — the knowledge gap (3-up wall of "is this a scam?" posts) */
+#s2b { --glow: var(--red-soft); --glow-x: 50%; --glow-y: 6%; }
+.s2b-head { font-size: 82px; line-height: 1.0; max-width: 1560px; margin-top: 22px; }
+.s2b-head .stroke { color: transparent; -webkit-text-stroke: 2px var(--red); }
+.receipts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 46px; }
+.receipts .shot img { height: 408px; object-fit: cover; object-position: top left; }
+.s2b-tie { margin-top: 40px; font-family: var(--display); font-weight: 700; font-size: 40px; }
+.s2b-tie .accent { font-family: var(--stencil); }
+
+/* ===========================================================
    DECK CHROME — progress + edit affordance (outside stage)
    =========================================================== */
 .deck-controls {
@@ -373,41 +403,61 @@ body.editing .edit-banner { display: block; }
             <div class="s1-tagline reveal d3">A vaccine for online scams.</div>
             <p class="s1-sub reveal d4">Don't warn people about fraud. Let them safely <strong>survive</strong> a scam — so the real one never lands.</p>
         </div>
-        <div class="page-meta">01 / 08</div>
+        <div class="page-meta">01 / 09</div>
         <div class="brand-meta">Phish n Cheats</div>
     </section>
 
-    <!-- ============ SLIDE 2 — PROBLEM ============ -->
+    <!-- ============ SLIDE 2 — PROBLEM (overconfidence) ============ -->
     <section class="slide" id="s2">
         <div class="frame">
             <div class="kicker reveal d1">01 — The Problem</div>
             <div class="cols">
                 <div class="col-l">
-                    <div class="stat-num reveal d2">40%</div>
-                    <div class="stat-cap reveal d3">of secondhand buyers are <strong>afraid of getting scammed.</strong></div>
-                    <div class="pull reveal d4">But the defense today is <span class="red">passive</span>.</div>
-                    <p class="body-md reveal d5" style="margin-top:18px;max-width:660px;">Help articles and warning banners nobody reads — until the money's already gone. You can't read your way to instinct.</p>
+                    <div class="s2-quote reveal d2">"It won't<br>happen<br>to <span class="q">me."</span></div>
+                    <div class="s2-line reveal d3">The most confident buyers are the <span class="red">easiest marks.</span></div>
+                    <p class="body-md s2-sub reveal d4">Modern scams look completely legitimate. Careful, savvy people do everything right — and still get taken.</p>
                 </div>
                 <div class="col-r">
-                    <div class="ghost-card reveal d4">
-                        <div class="gc-top"><span>Help Center › Avoiding scams</span><span class="gc-x">✕</span></div>
-                        <h4>5 tips to shop safely</h4>
-                        <div class="ghost-line w1"></div>
-                        <div class="ghost-line w2"></div>
-                        <div class="ghost-line w3"></div>
-                        <div class="ghost-stamp">dismissed · 0 read</div>
+                    <div class="shot s2-hero reveal d4">
+                        <img src="assets/pain/01-counterfeit-sweatpants.jpg" alt="Reddit post — got scammed on Carousell">
+                        <div class="cap">r/askSingapore · real post — <b>verified the seller, read the reviews, paid the "official" way.</b> Still got counterfeits.</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="page-meta">02 / 08</div>
+        <div class="page-meta">02 / 09</div>
+        <div class="brand-meta">Phish n Cheats</div>
+    </section>
+
+    <!-- ============ SLIDE 2B — THE KNOWLEDGE GAP (receipts wall) ============ -->
+    <section class="slide" id="s2b">
+        <div class="frame">
+            <div class="kicker reveal d1">02 — The Knowledge Gap</div>
+            <h2 class="s2b-head reveal d2">By the time they ask <span class="stroke">"is this a scam?"</span><br>the money's already gone.</h2>
+            <div class="receipts">
+                <div class="shot reveal d3">
+                    <img src="assets/pain/02-offplatform-telegram.jpg" alt="How does this Carousell scam work">
+                    <div class="cap">"How does this Carousell scam work?"</div>
+                </div>
+                <div class="shot reveal d4">
+                    <img src="assets/pain/04-fakepurchase-email.jpg" alt="Is this a known scam on Carousell">
+                    <div class="cap">"Is this a known scam? Has anyone seen this?"</div>
+                </div>
+                <div class="shot reveal d5">
+                    <img src="assets/pain/03-offplatform-whatsapp.jpg" alt="Potential Carousell scam tactic">
+                    <div class="cap">"Potential Carousell scam tactic?"</div>
+                </div>
+            </div>
+            <div class="s2b-tie reveal d6">Five scam types. Most people have met <span class="accent">none of them</span> — until it's real.</div>
+        </div>
+        <div class="page-meta">03 / 09</div>
         <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 3 — INSIGHT ============ -->
     <section class="slide" id="s3">
         <div class="frame">
-            <div class="kicker reveal d1">02 — The Insight</div>
+            <div class="kicker reveal d1">03 — The Insight</div>
             <h2 class="s3-head reveal d2" style="margin-top:28px;">You can't teach instinct.<br>You have to <span class="stroke">trigger</span> it.</h2>
             <div class="vax">
                 <div class="vax-step reveal d3">
@@ -430,14 +480,14 @@ body.editing .edit-banner { display: block; }
             </div>
             <div class="s3-tie reveal d6">Phish n Cheats is <span class="accent">inoculation</span> for fraud.</div>
         </div>
-        <div class="page-meta">03 / 08</div>
+        <div class="page-meta">04 / 09</div>
         <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 4 — WHAT IT IS ============ -->
     <section class="slide" id="s4">
         <div class="frame">
-            <div class="kicker reveal d1">03 — What It Is</div>
+            <div class="kicker reveal d1">04 — What It Is</div>
             <div class="cols">
                 <div class="col-l">
                     <h2 class="s4-head reveal d2">An opt-in event any marketplace can run.</h2>
@@ -458,14 +508,14 @@ body.editing .edit-banner { display: block; }
                 </div>
             </div>
         </div>
-        <div class="page-meta">04 / 08</div>
+        <div class="page-meta">05 / 09</div>
         <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 5 — HOW IT WORKS ============ -->
     <section class="slide" id="s5">
         <div class="frame">
-            <div class="kicker reveal d1">04 — How It Works</div>
+            <div class="kicker reveal d1">05 — How It Works</div>
             <h2 class="s5-head reveal d2" style="margin-top:24px;">The seller is an <span class="accent">AI</span> running a live scam.</h2>
             <div class="s5-body">
                 <div class="chat reveal d3">
@@ -487,25 +537,25 @@ body.editing .edit-banner { display: block; }
                 </div>
             </div>
         </div>
-        <div class="page-meta">05 / 08</div>
+        <div class="page-meta">06 / 09</div>
         <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 6 — DEMO MOMENT ============ -->
     <section class="slide" id="s6">
         <div class="frame">
-            <div class="live reveal d1"><span class="pulse"></span>Live demo</div>
-            <h2 class="s6-head reveal d2">Now watch a judge<br><span class="stamp">almost fall for it.</span></h2>
-            <div class="s6-sub reveal d4">[ hand over the laptop — and let the AI do the rest ]</div>
+            <div class="live reveal d1"><span class="pulse"></span>Real play-through</div>
+            <h2 class="s6-head reveal d2">Watch someone<br><span class="stamp">almost fall for it.</span></h2>
+            <div class="s6-sub reveal d4">[ unedited screen recording — the AI does the rest ]</div>
         </div>
-        <div class="page-meta">06 / 08</div>
+        <div class="page-meta">07 / 09</div>
         <div class="brand-meta">Phish n Cheats</div>
     </section>
 
     <!-- ============ SLIDE 7 — DUAL OUTPUT ============ -->
     <section class="slide" id="s7">
         <div class="frame">
-            <div class="kicker reveal d1">05 — Why It Matters</div>
+            <div class="kicker reveal d1">06 — Why It Matters</div>
             <h2 class="s7-head reveal d2" style="margin-top:24px;">Every play teaches the buyer —<br>and <span class="accent">arms the platform.</span></h2>
             <div class="duo">
                 <div class="duo-card buyer reveal d3">
@@ -530,7 +580,7 @@ body.editing .edit-banner { display: block; }
             </div>
             <div class="s7-foot reveal d5">Education <span class="accent">+</span> Intelligence — drop into <strong>any</strong> marketplace.</div>
         </div>
-        <div class="page-meta">07 / 08</div>
+        <div class="page-meta">08 / 09</div>
         <div class="brand-meta">Phish n Cheats</div>
     </section>
 
@@ -549,7 +599,7 @@ body.editing .edit-banner { display: block; }
             </div>
         </div>
         <div class="s8-foot-tape"></div>
-        <div class="page-meta">08 / 08</div>
+        <div class="page-meta">09 / 09</div>
         <div class="brand-meta">Trust · Commerce &amp; Fraud</div>
     </section>
 
