@@ -1,7 +1,7 @@
 // AUTO-GENERATED point-in-time snapshot of the marketplace dataset.
 // Source: team build workspace capture of carousell.sg (real public listings,
 // repurposed for the demo). Regenerate: see scripts/listings/README.md.
-// Depends on the Listing type from docs/specs/scam-school/05 (src/lib/types.ts).
+// Depends on the Listing type from docs/specs/phish-n-cheats/05 (src/lib/types.ts).
 // {'total': 30, 'scams': 6, 'decoys': 24}
 
 import type { Listing } from '../lib/types';

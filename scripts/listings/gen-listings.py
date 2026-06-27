@@ -2,7 +2,7 @@
 """Generate src/data/listings.ts (spec Listing[]) from a listings_real.json snapshot.
 
 Snapshot source: the team's live build workspace (carousell.sg captures).
-Maps the raw capture schema -> the Listing type in docs/specs/scam-school/05-data-and-dashboard.md.
+Maps the raw capture schema -> the Listing type in docs/specs/phish-n-cheats/05-data-and-dashboard.md.
 """
 import json, re, sys, io
 
@@ -148,7 +148,7 @@ def main():
         "// AUTO-GENERATED point-in-time snapshot of the marketplace dataset.\n"
         "// Source: team build workspace capture of carousell.sg (real public listings,\n"
         "// repurposed for the demo). Regenerate: see scripts/listings/README.md.\n"
-        "// Depends on the Listing type from docs/specs/scam-school/05 (src/lib/types.ts).\n"
+        "// Depends on the Listing type from docs/specs/phish-n-cheats/05 (src/lib/types.ts).\n"
         f"// {data.get('counts', {})}\n\n"
         "import type { Listing } from '../lib/types';\n\n"
         "export const listings: Listing[] = [\n"

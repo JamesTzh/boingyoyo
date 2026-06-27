@@ -1,4 +1,4 @@
-# Scam School — Pitch Brief & Cheat Sheet
+# Phish n Cheats — Pitch Brief & Cheat Sheet
 
 One page to glance at before and during judging. Track: **Trust, Commerce & Fraud.**
 

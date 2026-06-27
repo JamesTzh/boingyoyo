@@ -101,7 +101,7 @@ server/
   llm/provider.ts        # LlmProvider interface
   llm/openai.ts          # OpenAI implementation
   prompts/               # per-archetype system prompts (see 03)
-docs/specs/scam-school/  # these spec files
+docs/specs/phish-n-cheats/  # these spec files
 .env.example             # OPENAI_API_KEY=, OPENAI_MODEL=, AI_PROVIDER=openai, PORT=
 index.html
 package.json

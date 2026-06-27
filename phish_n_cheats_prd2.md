@@ -1,4 +1,4 @@
-# PRD — "Scam School" (working title)
+# PRD — "Phish n Cheats" (working title)
 
 A platform-agnostic, gamified scam-inoculation event that teaches online buyers to spot fraud by letting them safely "fall for" planted scams hidden among real listings.
 
